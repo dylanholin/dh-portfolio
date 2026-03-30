@@ -6,9 +6,9 @@ Portfolio personnel de **Dylan Holin**, développeur avancé & IA en recherche d
 
 ## Voir le site
 
-👉 [serenadebird.github.io/dh-portfolio](https://serenadebird.github.io/dh-portfolio)
+ [serenadebird.github.io/dh-portfolio](https://serenadebird.github.io/dh-portfolio)
 
-## 🛠️ Stack
+## Stack
 
 - HTML5 sémantique
 - CSS3 (variables, grid, animations)

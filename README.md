@@ -31,4 +31,4 @@ dh-portfolio/
 ## Contact
 
 - [holinpro@proton.me](mailto:holinpro@proton.me)
-- [LinkedIn](https://www.linkedin.com/in/dylan-holin-a21905398/)
+- [LinkedIn](https://www.linkedin.com/in/dylan-holin/)

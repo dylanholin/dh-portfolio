@@ -6,7 +6,7 @@ Portfolio personnel de **Dylan Holin**, développeur avancé & IA en recherche d
 
 ## Voir le site
 
- [serenadebird.github.io/dh-portfolio](https://serenadebird.github.io/dh-portfolio)
+ [dylanholin.github.io/dh-portfolio](https://dylanholin.github.io/dh-portfolio)
 
 ## Stack
 

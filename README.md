@@ -32,4 +32,3 @@ dh-portfolio/
 
 - 📧 [holinpro@proton.me](mailto:holinpro@proton.me)
 - 💼 [LinkedIn](https://www.linkedin.com/in/dylan-holin-a21905398/)
-- 🐙 [GitHub](https://github.com/SerenadeBird)

@@ -2,7 +2,7 @@
 
 Portfolio personnel de **Dylan Holin**, développeur avancé & IA en recherche d'alternance.
 
-
+<img width="1841" height="938" alt="image" src="https://github.com/user-attachments/assets/fab3311b-efb0-47ea-aeb4-893215123704" />
 
 ## 🔗 Voir le site
 

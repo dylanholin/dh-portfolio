@@ -104,16 +104,31 @@ document.getElementById('annee-footer').textContent = new Date().getFullYear();
     nebula2: '#0d1b3e'
   };
   
-  let stars = [], trails = [], spaceObjects = [], nebulaClouds = [];
-  
-  // Zone d'exclusion pour le texte (centre du hero)
-  function isInTextZone(x, y, margin = 50) {
-    const centerX = W / 2;
-    const centerY = H / 2;
-    const zoneW = Math.min(600, W * 0.7) + margin;
-    const zoneH = 350 + margin;
-    return x > centerX - zoneW/2 && x < centerX + zoneW/2 &&
-           y > centerY - zoneH/2 && y < centerY + zoneH/2;
+  let stars = [], trails = [], spaceObjects = [], nebulaClouds = [], exclusionZones = [];
+
+  // Calcule les zones protégées depuis les positions réelles des éléments texte
+  function calcExclusionZones() {
+    exclusionZones = [];
+    const canvasRect = canvas.getBoundingClientRect();
+    ['.hero-badge', '.hero-contenu'].forEach(sel => {
+      const el = document.querySelector(sel);
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      exclusionZones.push({
+        x: r.left - canvasRect.left,
+        y: r.top  - canvasRect.top,
+        w: r.width,
+        h: r.height
+      });
+    });
+  }
+
+  // Vérifie si (x, y) tombe dans une zone protégée (avec marge autour)
+  function isInTextZone(x, y, margin = 10) {
+    return exclusionZones.some(z =>
+      x > z.x - margin && x < z.x + z.w + margin &&
+      y > z.y - margin && y < z.y + z.h + margin
+    );
   }
   
   // Position aléatoire hors zone texte
@@ -123,13 +138,14 @@ document.getElementById('annee-footer').textContent = new Date().getFullYear();
       x = Math.random() * W;
       y = Math.random() * H;
       attempts++;
-    } while (isInTextZone(x, y, 80) && attempts < 50);
+    } while (isInTextZone(x, y, 15) && attempts < 50);
     return { x, y };
   }
   
   function resize() {
     W = canvas.width = canvas.offsetWidth;
     H = canvas.height = canvas.offsetHeight;
+    calcExclusionZones();
     init();
   }
   

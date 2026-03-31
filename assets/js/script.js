@@ -268,6 +268,9 @@ document.getElementById('annee-footer').textContent = new Date().getFullYear();
         alpha: 0.9
       });
     });
+
+    // Tri par taille (depth) calculé une fois ici plutôt qu'à chaque frame
+    spaceObjects.sort((a, b) => (b.size || 0) - (a.size || 0));
   }
   
   function createTrail() {
@@ -284,10 +287,10 @@ document.getElementById('annee-footer').textContent = new Date().getFullYear();
   // ══  DESSIN DES OBJETS 32x32                              ══
   // ══════════════════════════════════════════════════════════
   
-  function drawSun(obj) {
+  function drawSun(obj, timestamp) {
     const { x, y, size, alpha } = obj;
     const cx = x + size/2, cy = y + size/2;
-    const time = Date.now() * 0.001;
+    const time = timestamp * 0.001;
     
     // Corona externe (effet de flammes)
     for (let angle = 0; angle < Math.PI * 2; angle += 0.3) {
@@ -405,9 +408,9 @@ document.getElementById('annee-footer').textContent = new Date().getFullYear();
     }
   }
   
-  function drawShip(obj) {
+  function drawShip(obj, timestamp) {
     const { x, y, facingRight, alpha, scale = 1, shipColors } = obj;
-    const time = Date.now() * 0.01;
+    const time = timestamp * 0.01;
     const s = Math.floor(2 * scale);
     
     // Couleurs du vaisseau (personnalisées ou par défaut)
@@ -511,7 +514,7 @@ document.getElementById('annee-footer').textContent = new Date().getFullYear();
     });
   }
   
-  function draw() {
+  function draw(timestamp) {
     ctx.clearRect(0, 0, W, H);
     
     // Nébuleuses de fond
@@ -529,7 +532,7 @@ document.getElementById('annee-footer').textContent = new Date().getFullYear();
     });
     
     // Étoiles
-    const now = Date.now() * 0.001;
+    const now = timestamp * 0.001;
     stars.forEach(s => {
       const twinkle = Math.sin(now * s.speed * 80 + s.phase);
       const alpha = 0.4 + (twinkle + 1) * 0.2 * s.bright;
@@ -547,27 +550,26 @@ document.getElementById('annee-footer').textContent = new Date().getFullYear();
       }
     });
     
-    // Objets spatiaux (triés par taille pour le depth)
-    const sortedObjects = [...spaceObjects].sort((a, b) => (b.size || 0) - (a.size || 0));
-    sortedObjects.forEach(obj => {
-      if (obj.type === 'sun') drawSun(obj);
+    // Objets spatiaux (triés par taille pour le depth, ordre calculé une fois dans init)
+    spaceObjects.forEach(obj => {
+      if (obj.type === 'sun') drawSun(obj, timestamp);
       else if (obj.type === 'planet') drawPlanet(obj);
       else if (obj.type === 'asteroid') drawAsteroid(obj);
-      else if (obj.type === 'ship') drawShip(obj);
+      else if (obj.type === 'ship') drawShip(obj, timestamp);
     });
     
     ctx.globalAlpha = 1;
   }
   
-  function loop() {
+  function loop(timestamp) {
     update();
-    draw();
+    draw(timestamp);
     requestAnimationFrame(loop);
   }
   
   window.addEventListener('resize', resize);
   resize();
-  loop();
+  requestAnimationFrame(loop);
   
   document.addEventListener('visibilitychange', () => {
     canvas.style.display = document.hidden ? 'none' : 'block';
@@ -605,7 +607,7 @@ function openModal(target) {
       close();
       return;
     }
-    // Focus trap : Tab循环dans la modale
+    // Focus trap : Tab cycling dans la modale
     if (e.key === 'Tab') {
       if (e.shiftKey && document.activeElement === firstFocusable) {
         e.preventDefault();

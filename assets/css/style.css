@@ -1163,6 +1163,11 @@ a:focus-visible, .btn:focus-visible, .btn-email:focus-visible {
   border-radius: var(--radius-sm);
 }
 
+@keyframes nav-slide-down {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   :root {
@@ -1171,36 +1176,89 @@ a:focus-visible, .btn:focus-visible, .btn-email:focus-visible {
   }
 
   .nav-liens { display: none; }
-  .nav-menu-btn { display: flex; }
 
+  /* Bouton hamburger — touch target 44px */
+  .nav-menu-btn {
+    display: flex;
+    width: 44px;
+    height: 44px;
+  }
+
+  /* Hamburger → X quand le menu est ouvert */
+  [aria-expanded="true"].nav-menu-btn span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  [aria-expanded="true"].nav-menu-btn span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  [aria-expanded="true"].nav-menu-btn span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  /* Menu ouvert — espacement, profondeur, animation */
   .nav-liens.open {
     display: flex;
     flex-direction: column;
+    align-items: stretch;
     position: fixed;
     top: var(--nav-height);
     left: 0;
     right: 0;
     background: rgba(6, 11, 24, 0.98);
     backdrop-filter: blur(24px);
-    padding: var(--space-xl);
+    padding: var(--space-lg) var(--space-xl) var(--space-xl);
     border-bottom: 1px solid var(--border-accent);
-    gap: var(--space-sm);
+    gap: var(--space-md);
     z-index: 99;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+    animation: nav-slide-down 0.22s ease-out;
   }
+
+  /* Liens — touch targets 48px + séparation visuelle */
   .nav-liens.open a {
-    padding: 1rem 1.5rem;
+    width: 100%;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 1.5rem;
     border-radius: var(--radius-md);
-    border: 1px solid transparent;
+    border: 1px solid var(--border);
+    background: var(--surface);
     font-size: 1rem;
     text-align: center;
   }
   .nav-liens.open a:hover {
+    background: rgba(79, 144, 247, 0.08);
     border-color: var(--border-accent);
+    color: var(--text-primary);
+  }
+
+  /* État actif visible dans le menu mobile */
+  .nav-liens.open a.active {
+    background: rgba(79, 144, 247, 0.1);
+    border-color: var(--border-accent);
+    color: var(--primary);
+  }
+
+  /* Bouton CTA Contact — taille cohérente, séparé visuellement */
+  .nav-principale .nav-liens.open .nav-cta {
+    width: 100%;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    padding: 0.875rem 1.5rem;
+    margin-left: 0;
+    margin-top: var(--space-xs);
   }
 
   .section { padding: var(--space-2xl) var(--space-md); }
   .hero { padding: calc(var(--nav-height) + var(--space-xl)) var(--space-md) var(--space-2xl); }
-  .hero-actions { flex-direction: column; align-items: center; }
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-actions .btn { justify-content: center; }
   .hero-titre { font-size: clamp(2.6rem, 10vw, 4rem); }
 
   .competences-grille,
@@ -1221,7 +1279,8 @@ a:focus-visible, .btn:focus-visible, .btn-email:focus-visible {
   .formation-actuelle .formation-periode { color: var(--accent); }
 
   .contact-container { padding: var(--space-2xl) var(--space-md); }
-  .btn-email { padding: 0.85rem 1.5rem; font-size: 0.9rem; }
+  .btn { min-height: 44px; }
+  .btn-email { padding: 0.85rem 1.5rem; font-size: 0.9rem; min-height: 44px; }
   .apropos-contenu { padding: var(--space-lg); }
   .nav-principale { padding: 0 var(--space-md); }
 }

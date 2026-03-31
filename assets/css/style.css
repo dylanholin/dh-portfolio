@@ -59,6 +59,10 @@
   --radius-md:   12px;
   --radius-lg:   20px;
   --radius-full: 100px;
+
+  /* Mise en page spécifique */
+  --timeline-offset: 148px;
+  --bg-modal: #0d1321;
 }
 
 /* ===== RESET ===== */
@@ -220,17 +224,17 @@ img { max-width: 100%; display: block; }
   background: rgba(79, 144, 247, 0.1);
 }
 
-.nav-cta {
-  background: var(--primary) !important;
-  color: var(--bg-primary) !important;
-  font-weight: 600 !important;
-  font-size: 0.78rem !important;
-  padding: 0.4rem 0.9rem !important;
+.nav-principale .nav-liens .nav-cta {
+  background: var(--primary);
+  color: var(--bg-primary);
+  font-weight: 600;
+  font-size: 0.78rem;
+  padding: 0.4rem 0.9rem;
   margin-left: 0.3rem;
 }
-.nav-cta:hover {
-  background: var(--primary-light) !important;
-  color: var(--bg-primary) !important;
+.nav-principale .nav-liens .nav-cta:hover {
+  background: var(--primary-light);
+  color: var(--bg-primary);
   transform: translateY(-1px);
   box-shadow: 0 3px 12px var(--primary-glow);
 }
@@ -682,7 +686,6 @@ img { max-width: 100%; display: block; }
   font-weight: 500;
   font-family: var(--font-body);
   transition: all 0.2s;
-  display: inline-block;
   cursor: pointer;
   letter-spacing: 0.01em;
 }
@@ -695,6 +698,12 @@ img { max-width: 100%; display: block; }
 .badge-sm { font-size: 0.72rem; padding: 0.22rem 0.6rem; }
 
 /* ===== PROJETS ===== */
+.projet-placeholder {
+  text-align: center;
+  color: var(--text-muted);
+  padding: var(--space-xl) 0;
+}
+
 .projets-grille {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -807,7 +816,7 @@ img { max-width: 100%; display: block; }
 .formation-timeline::before {
   content: '';
   position: absolute;
-  left: 148px;
+  left: var(--timeline-offset);
   top: 28px;
   bottom: 28px;
   width: 1px;
@@ -817,7 +826,7 @@ img { max-width: 100%; display: block; }
 
 .formation-carte {
   display: grid;
-  grid-template-columns: 148px 1fr;
+  grid-template-columns: var(--timeline-offset) 1fr;
   gap: 0 var(--space-2xl);
   position: relative;
   align-items: start;
@@ -829,7 +838,7 @@ img { max-width: 100%; display: block; }
 .formation-carte::after {
   content: '';
   position: absolute;
-  left: 148px;
+  left: var(--timeline-offset);
   top: 26px;
   width: 10px;
   height: 10px;
@@ -967,6 +976,14 @@ img { max-width: 100%; display: block; }
 .formation-secondaire { opacity: 0.6; }
 .formation-secondaire:hover { opacity: 1; }
 
+.contact-sociaux {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 /* ===== CONTACT ===== */
 .section-contact {
   background: linear-gradient(160deg, rgba(13, 21, 38, 0.9) 0%, rgba(19, 32, 57, 0.8) 100%);
@@ -1089,7 +1106,7 @@ img { max-width: 100%; display: block; }
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: #0d1321;
+  background: var(--bg-modal);
   border: 1px solid rgba(79, 144, 247, 0.3);
   border-radius: 12px;
   padding: 2rem;

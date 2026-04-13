@@ -2,8 +2,6 @@
 
 Portfolio de Dylan Holin - Développeur avancé & IA en recherche d'alternance à partir de juillet 2026.
 
-Ce portfolio n'est pas juste un site, c'est une déclaration : la sécurité et la vie privée ne sont pas des options, c'est le point de départ.
-
 <img width="1841" height="938" alt="Portfolio Preview" src="https://github.com/user-attachments/assets/fab3311b-efb0-47ea-aeb4-893215123704" />
 
 ## Voir le site
@@ -18,9 +16,9 @@ Ce portfolio n'est pas juste un site, c'est une déclaration : la sécurité et 
 
 ## Sécurité et Confidentialité
 
-Parce que votre vie privée mérite mieux que des "terms of service" de 50 pages.
+Parce que votre vie privée mérite mieux et que la sécurité ne doit pas être une option.
 
-Ce portfolio applique les bonnes pratiques de sécurité et de confidentialité RGPD 2025/2026 dès la première ligne de code. Pas de compromis, pas de tracking, juste du code propre.
+Ce portfolio applique les bonnes pratiques de sécurité et de confidentialité RGPD dès la première ligne de code, le tracking est tout simplement banni et le portfolio est conforme aux standards 2026
 
 ### Ce qui est sécurisé
 
@@ -48,16 +46,14 @@ Ce portfolio applique les bonnes pratiques de sécurité et de confidentialité 
 
 ### Contexte GitHub Pages
 
-GitHub Pages ne permet pas les HTTP headers côté serveur (dommage), donc on utilise les meta tags http-equiv. C'est moins efficace que les vrais headers, mais c'est la seule option sur cette plateforme. On fait avec ce qu'on a.
+GitHub Pages ne permet pas les HTTP headers côté serveur (dommage), donc on utilise les meta tags http-equiv. C'est moins efficace que les vrais headers, mais c'est la seule option dans ce cas sur cette plateforme... faut parfois faire avec ce qu'on a.
 
-**Variables CSS pour polices système:** Tout est dans style.css (--font-heading, --font-body, --font-mono). Pas de CSS inline, donc pas besoin de hash SHA-256. Simple et propre.
+**Variables CSS pour polices système:** Tout est dans style.css (--font-heading, --font-body, --font-mono). Pas de CSS inline, donc plus besoin de hash SHA-256. C'est plus simple et propre.
 
 **Pourquoi ces choix:**
 - Meta tags http-equiv = seule solution sur GitHub Pages
 - Variables CSS = bonnes pratiques professionnelles (pas de inline)
 - CSP strict simple = optimal sans complexité inutile
-- Conforme aux standards 2025/2026
-
 
 ## Structure
 
@@ -76,4 +72,5 @@ dh-portfolio/
 ## Contact
 
 - [holinpro@proton.me](mailto:holinpro@proton.me)
-- [LinkedIn](https://www.linkedin.com/in/dylan-holin/)
+- [LinkedIn](https://www.linkedin.com/in/dylan-holin/) 
+oui Linkedin... j'optimise mes chances, ce n'est pas dans une cave seul que je vais pouvoir progresser, une alternative privacy friendly à linkedin serait bienvenue

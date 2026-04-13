@@ -116,6 +116,10 @@ h1, h2, h3, h4 {
   color: var(--text-primary);
 }
 
+code, pre {
+  font-family: var(--font-mono);
+}
+
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
 

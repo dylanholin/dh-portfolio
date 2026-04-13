@@ -984,6 +984,11 @@ img { max-width: 100%; display: block; }
   flex-wrap: wrap;
 }
 
+/* Style pour les listes de compétences dans expériences */
+.competence-liste-margin {
+  margin-top: 0.75rem;
+}
+
 /* ===== CONTACT ===== */
 .section-contact {
   background: linear-gradient(160deg, rgba(13, 21, 38, 0.9) 0%, rgba(19, 32, 57, 0.8) 100%);
@@ -1014,6 +1019,7 @@ img { max-width: 100%; display: block; }
   letter-spacing: -0.035em;
 }
 .section-contact .section-titre::after { margin: 0.8rem auto 0; }
+.section-contact .section-titre { text-align: center; }
 .contact-intro { margin-bottom: var(--space-2xl); }
 .contact-intro p {
   font-size: 1.05rem;

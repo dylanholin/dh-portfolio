@@ -1,28 +1,32 @@
 # dh-portfolio
 
-Portfolio personnel de **Dylan Holin**, développeur avancé & IA en recherche d'alternance.
+Portfolio de Dylan Holin - Développeur avancé & IA en recherche d'alternance à partir de juillet 2026.
 
-<img width="1841" height="938" alt="image" src="https://github.com/user-attachments/assets/fab3311b-efb0-47ea-aeb4-893215123704" />
+Ce portfolio n'est pas juste un site, c'est une déclaration : la sécurité et la vie privée ne sont pas des options, c'est le point de départ.
+
+<img width="1841" height="938" alt="Portfolio Preview" src="https://github.com/user-attachments/assets/fab3311b-efb0-47ea-aeb4-893215123704" />
 
 ## Voir le site
 
- [dylanholin.github.io/dh-portfolio](https://dylanholin.github.io/dh-portfolio)
+[https://dylanholin.github.io/dh-portfolio](https://dylanholin.github.io/dh-portfolio)
 
 ## Stack
 
-- HTML5 sémantique
+- HTML5 sémantique & accessible
 - CSS3 (variables, grid, animations)
-- JavaScript vanilla
+- JavaScript vanilla (ES6+)
 
 ## Sécurité et Confidentialité
 
-Ce portfolio respecte les bonnes pratiques de sécurité et de confidentialité RGPD 2025/2026.
+Parce que votre vie privée mérite mieux que des "terms of service" de 50 pages.
 
-### Mesures de sécurité mises en place
+Ce portfolio applique les bonnes pratiques de sécurité et de confidentialité RGPD 2025/2026 dès la première ligne de code. Pas de compromis, pas de tracking, juste du code propre.
 
-**Content-Security-Policy (CSP) strict:**
-- `script-src 'self'` - Scripts uniquement depuis le domaine
-- `style-src 'self' 'sha256-...'` - Styles externes + hash SHA-256 pour CSS inline spécifique
+### Ce qui est sécurisé
+
+**Content-Security-Policy strict:**
+- `script-src 'self'` - Scripts uniquement depuis le domaine (bye bye XSS)
+- `style-src 'self'` - Styles externes uniquement (variables CSS, pas de inline)
 - `img-src 'self' data:` - Images locales uniquement
 - `frame-ancestors 'none'` - Protection contre clickjacking
 - `connect-src 'self'` - Connexions uniquement vers le domaine
@@ -34,34 +38,26 @@ Ce portfolio respecte les bonnes pratiques de sécurité et de confidentialité 
 - `Referrer-Policy: no-referrer` - Confidentialité des référents
 - `Permissions-Policy` - Géolocalisation, caméra, microphone désactivés
 
-**Confidentialité RGPD:**
-- Aucun cookie ni tracking
-- Polices système (pas de Google Fonts)
-- Aucun script d'analytics tiers
-- Email Proton.me (service privacy-first)
-- Mentions légales et politique de confidentialité
+### Ce qui est privacy-friendly
+
+- Zéro cookie, zéro tracking, zéro collecte de données
+- Polices système (pas de Google Fonts qui vous traquent)
+- Aucun script d'analytics tiers (pas de Google Analytics)
+- Email Proton.me
+- Mentions légales et politique de confidentialité transparentes
 
 ### Contexte GitHub Pages
 
-**Limitation technique:** GitHub Pages ne supporte pas les HTTP headers personnalisés côté serveur. Les headers de sécurité sont donc implémentés via meta tags `http-equiv` dans le HTML, qui sont moins efficaces que les vrais HTTP headers mais constituent la seule solution disponible sur cette plateforme.
+GitHub Pages ne permet pas les HTTP headers côté serveur (dommage), donc on utilise les meta tags http-equiv. C'est moins efficace que les vrais headers, mais c'est la seule option sur cette plateforme. On fait avec ce qu'on a.
 
-**CSS inline avec hash SHA-256:** Le CSS inline pour les polices système est sécurisé via un hash SHA-256 dans le CSP. Cette approche permet de maintenir un CSP strict tout en autorisant uniquement ce CSS spécifique.
+**Variables CSS pour polices système:** Tout est dans style.css (--font-heading, --font-body, --font-mono). Pas de CSS inline, donc pas besoin de hash SHA-256. Simple et propre.
 
-### Conscience des bonnes pratiques professionnelles
+**Pourquoi ces choix:**
+- Meta tags http-equiv = seule solution sur GitHub Pages
+- Variables CSS = bonnes pratiques professionnelles (pas de inline)
+- CSP strict simple = optimal sans complexité inutile
+- Conforme aux standards 2025/2026
 
-**Dans un environnement idéal (avec support HTTP headers):**
-- Tous les headers de sécurité seraient configurés côté serveur
-- Le CSS serait entièrement dans des fichiers externes (pas de inline)
-- Aucun hash SHA-256 ne serait nécessaire
-- CSP strict sans compromis
-
-**Pourquoi ces choix sur GitHub Pages:**
-- Meta tags http-equiv = seule solution disponible
-- Hash SHA-256 = meilleure alternative à 'unsafe-inline' pour CSS inline
-- CSP strict malgré les limitations de la plateforme
-- Compromis pragmatique entre sécurité et contraintes techniques
-
-Ces choix démontrent une expertise en cybersécurité (OWASP, hardening) tout en s'adaptant aux contraintes de l'hébergement GitHub Pages.
 
 ## Structure
 

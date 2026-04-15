@@ -58,7 +58,7 @@ document.getElementById('annee-footer').textContent = new Date().getFullYear();
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   
-  let W, H;
+  let W, H, prevW = 0;
   
   // Palette spatiale améliorée
   const C = {
@@ -143,10 +143,14 @@ document.getElementById('annee-footer').textContent = new Date().getFullYear();
   }
   
   function resize() {
-    W = canvas.width = canvas.offsetWidth;
+    const newW = canvas.offsetWidth;
+    W = canvas.width = newW;
     H = canvas.height = canvas.offsetHeight;
     calcExclusionZones();
-    init();
+    if (prevW !== newW) {
+      prevW = newW;
+      init();
+    }
   }
   
   // Dessiner un pixel à une position absolue

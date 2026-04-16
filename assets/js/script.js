@@ -640,7 +640,7 @@ function openModal(target) {
   };
   
   overlay.addEventListener('click', close);
-  target.querySelector('.modal-close')?.addEventListener('click', close);
+  target.querySelector('.modal-close')?.addEventListener('click', close, { once: true });
   document.addEventListener('keydown', handleKeydown);
 }
 

@@ -732,6 +732,7 @@ img { max-width: 100%; display: block; }
   height: 0;
   background: linear-gradient(to top, rgba(79, 144, 247, 0.06), transparent);
   transition: height 0.4s;
+  pointer-events: none;
 }
 .projet-carte:hover {
   border-color: var(--border-accent);
@@ -807,6 +808,38 @@ img { max-width: 100%; display: block; }
   padding-top: var(--space-md);
   position: relative;
   z-index: 1;
+}
+
+/* CTA projet (cohérence visuelle avec document-cta) */
+.projet-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: var(--space-lg);
+  padding: 0.5rem 1rem;
+  background: rgba(79, 144, 247, 0.1);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  color: var(--primary);
+  align-self: flex-start;
+  transition: all 0.25s;
+  position: relative;
+  z-index: 1;
+}
+.projet-cta svg {
+  flex-shrink: 0;
+  transition: transform 0.25s;
+}
+.projet-carte:hover .projet-cta {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+.projet-carte:hover .projet-cta svg {
+  transform: translateX(3px);
 }
 
 /* ===== TIMELINE FORMATION / EXPÉRIENCES ===== */

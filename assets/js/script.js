@@ -285,6 +285,7 @@ document.getElementById('annee-footer').textContent = new Date().getFullYear();
         facingRight: goingRight,
         scale: 1.2,
         shipColors: colors,
+        pattern: buildShipPattern(colors),
         alpha: 0.9
       });
     });
@@ -428,48 +429,40 @@ document.getElementById('annee-footer').textContent = new Date().getFullYear();
     }
   }
   
-  function drawShip(obj, timestamp) {
-    const { x, y, facingRight, alpha, scale = 1, shipColors } = obj;
-    const time = timestamp * 0.01;
-    const s = Math.floor(2 * scale);
-    
-    // Couleurs du vaisseau (personnalisées ou par défaut)
-    const sc = shipColors || { body: C.shipBody, light: C.shipLight, dark: C.shipDark };
-    
-    // Vaisseau pixel art (scalable)
-    const shipPattern = [
-      // Queue
+  function buildShipPattern(sc) {
+    return [
       { dx: 0, dy: 3, c: sc.dark },
       { dx: 1, dy: 2, c: sc.dark },
       { dx: 1, dy: 3, c: sc.body },
       { dx: 1, dy: 4, c: sc.dark },
-      // Corps arrière
       { dx: 2, dy: 1, c: sc.dark },
       { dx: 2, dy: 2, c: sc.body },
       { dx: 2, dy: 3, c: sc.light },
       { dx: 2, dy: 4, c: sc.body },
       { dx: 2, dy: 5, c: sc.dark },
-      // Corps central
       { dx: 3, dy: 1, c: sc.dark },
       { dx: 3, dy: 2, c: sc.body },
       { dx: 3, dy: 3, c: sc.light },
       { dx: 3, dy: 4, c: sc.body },
       { dx: 3, dy: 5, c: sc.dark },
-      // Corps avant
       { dx: 4, dy: 2, c: sc.body },
       { dx: 4, dy: 3, c: sc.light },
       { dx: 4, dy: 4, c: sc.body },
-      // Nez
       { dx: 5, dy: 2, c: sc.body },
       { dx: 5, dy: 3, c: sc.light },
       { dx: 5, dy: 4, c: sc.body },
-      // Cockpit
       { dx: 6, dy: 3, c: '#00FFFF' },
       { dx: 7, dy: 3, c: sc.light }
     ];
+  }
+  
+  function drawShip(obj, timestamp) {
+    const { x, y, facingRight, alpha, scale = 1 } = obj;
+    const time = timestamp * 0.01;
+    const s = Math.floor(2 * scale);
     
-    // Dessiner le vaisseau avec scale
-    shipPattern.forEach(p => {
+    // Dessiner le vaisseau avec scale (pattern pré-calculé dans init)
+    obj.pattern.forEach(p => {
       const px_ = facingRight ? p.dx : (7 - p.dx);
       pxBlock(x + px_ * s, y + p.dy * s, s, p.c, alpha);
     });
@@ -581,18 +574,41 @@ document.getElementById('annee-footer').textContent = new Date().getFullYear();
     ctx.globalAlpha = 1;
   }
   
+  let animationId = null;
+  let canvasVisible = true;
+  
+  // Pause l'animation quand le canvas sort du viewport (économie CPU/GPU)
+  const canvasObserver = new IntersectionObserver((entries) => {
+    canvasVisible = entries[0].isIntersecting;
+    if (canvasVisible && !animationId && !document.hidden) {
+      animationId = requestAnimationFrame(loop);
+    }
+  }, { threshold: 0 });
+  canvasObserver.observe(canvas);
+  
   function loop(timestamp) {
+    if (!canvasVisible || document.hidden) {
+      animationId = null;
+      return;
+    }
     update();
     draw(timestamp);
-    requestAnimationFrame(loop);
+    animationId = requestAnimationFrame(loop);
   }
   
   window.addEventListener('resize', resize);
   resize();
-  requestAnimationFrame(loop);
+  animationId = requestAnimationFrame(loop);
   
   document.addEventListener('visibilitychange', () => {
-    canvas.style.display = document.hidden ? 'none' : 'block';
+    if (document.hidden) {
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+        animationId = null;
+      }
+    } else if (canvasVisible) {
+      animationId = requestAnimationFrame(loop);
+    }
   });
 })();
 
@@ -639,7 +655,7 @@ function openModal(target) {
     }
   };
   
-  overlay.addEventListener('click', close);
+  overlay.addEventListener('click', close, { once: true });
   target.querySelector('.modal-close')?.addEventListener('click', close, { once: true });
   document.addEventListener('keydown', handleKeydown);
 }

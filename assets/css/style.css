@@ -992,6 +992,11 @@ img { max-width: 100%; display: block; }
 .competence-liste-margin {
   margin-top: 0.75rem;
 }
+.competence-liste-margin + .formation-statut {
+  display: flex;
+  width: fit-content;
+  margin-top: 0.75rem;
+}
 
 /* ===== DOCUMENTS ALTERNANCE ===== */
 .documents-grille {

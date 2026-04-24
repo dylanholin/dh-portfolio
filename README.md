@@ -93,7 +93,7 @@ Deux fichiers dédiés suivent les conventions émergentes en 2026. Ils ont chac
 - **`llms.txt`** — Résumé public destiné aux IA qui **consomment** le site (un recruteur qui demande à ChatGPT "résume-moi ce candidat"). Format [llmstxt.org](https://llmstxt.org).
 - **`AGENTS.md`** — Instructions destinées aux IA qui **développent** sur le code (Cascade, Cursor, Copilot, Claude Code). Documente les contraintes GitHub Pages, la CSP, les règles d'accessibilité et le workflow Git attendu.
 
-Oui c'est un peu méta, mais en 2026 les IA sont des utilisateurs comme les autres — autant leur donner un point d'entrée propre plutôt que de les laisser deviner.
+Petite experimentation, en 2026 les IA sont présentes partout — autant leur donner un point d'entrée propre plutôt que de les laisser deviner ce qu'il faut faire.
 
 ## Contact
 

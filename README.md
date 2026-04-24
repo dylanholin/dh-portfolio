@@ -32,9 +32,10 @@ Ce portfolio applique les bonnes pratiques de sécurité et de confidentialité 
 **Headers de sécurité (via meta tags http-equiv):**
 - `X-Content-Type-Options: nosniff` - Protection MIME sniffing
 - `X-Frame-Options: DENY` - Anti-clickjacking
-- `X-XSS-Protection: 1; mode=block` - Protection XSS
 - `Referrer-Policy: no-referrer` - Confidentialité des référents
 - `Permissions-Policy` - Géolocalisation, caméra, microphone désactivés
+
+> Note : `X-XSS-Protection` n'est volontairement pas utilisé (déprécié, retiré de Chrome, déconseillé par OWASP — il peut introduire des vulnérabilités dans certains scénarios). La protection repose sur la CSP stricte.
 
 ### Ce qui est privacy-friendly
 

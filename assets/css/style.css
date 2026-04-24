@@ -1463,4 +1463,13 @@ a:focus-visible, .btn:focus-visible, .btn-email:focus-visible {
     transition-duration: 0.01ms !important;
   }
   [data-animate] { opacity: 1; transform: none; }
+
+  /* Scroll instantané au lieu de smooth (scroll-behavior n'est pas
+     couvert par transition-duration car c'est un comportement natif) */
+  html { scroll-behavior: auto; }
+
+  /* Stoppe explicitement le blink du logo (le catch-all ci-dessus le
+     rend imperceptible mais laisse l'animation tourner ; on préfère
+     la couper franchement pour un respect strict de la préférence) */
+  .nav-logo .logo-accent { animation: none; }
 }

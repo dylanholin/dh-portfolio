@@ -29,6 +29,8 @@ Ce portfolio applique les bonnes pratiques de sécurité et de confidentialité 
 - `img-src 'self' data:` - Images locales uniquement
 - `frame-ancestors 'none'` - Protection contre clickjacking
 - `connect-src 'self'` - Connexions uniquement vers le domaine
+- `base-uri 'self'` - Empêche le détournement de l'URL de base du document
+- `form-action 'self'` - Restreint la cible des formulaires au domaine
 
 **Headers de sécurité (via meta tags http-equiv):**
 - `X-Content-Type-Options: nosniff` - Protection MIME sniffing
@@ -66,7 +68,7 @@ Objectif WCAG 2.1 AA. Concrètement :
 - Focus trap dans les modales (mentions légales, confidentialité)
 - `aria-label`, `aria-labelledby`, `role="list"` (workaround Safari sur les listes stylées)
 - SVG décoratifs avec `aria-hidden`, SVG porteurs de sens avec `aria-label`
-- **`prefers-reduced-motion` détecté automatiquement** : si le visiteur a activé l'option « Réduire les animations » dans les paramètres de son système (Windows, macOS, iOS, Android) ou de son navigateur, le site le détecte via l'API `matchMedia` et adapte le rendu — les animations CSS sont désactivées et le canvas spatial passe en mode statique. C'est un confort essentiel pour les personnes sensibles au mouvement (troubles vestibulaires, migraines).
+- **`prefers-reduced-motion` détecté automatiquement** : si le visiteur a activé l'option « Réduire les animations » dans les paramètres de son système (Windows, macOS, iOS, Android) ou de son navigateur, le site le détecte via l'API `matchMedia` et adapte le rendu — les animations CSS sont désactivées (y compris le blink du logo), le scroll smooth devient instantané, et le canvas spatial passe en mode statique. C'est un confort essentiel pour les personnes sensibles au mouvement (troubles vestibulaires, migraines).
 - Styles d'impression fournis (oui, certains recruteurs impriment encore les CV)
 
 ## Structure

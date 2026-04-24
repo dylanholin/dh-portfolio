@@ -150,6 +150,11 @@ document.getElementById('annee-footer').textContent = new Date().getFullYear();
     if (prevW !== newW) {
       prevW = newW;
       init();
+      // En mode reduced-motion, la boucle rAF est à l'arrêt : on force un
+      // redraw manuel pour ne pas laisser un canvas vide après resize.
+      if (motionQuery.matches && canvasVisible && !document.hidden) {
+        draw(performance.now());
+      }
     }
   }
   
@@ -576,18 +581,30 @@ document.getElementById('annee-footer').textContent = new Date().getFullYear();
   
   let animationId = null;
   let canvasVisible = true;
-  
+
+  // Respect de prefers-reduced-motion : on dessine une seule frame statique
+  // et on n'anime pas (positions/flammes/scintillement figés).
+  const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  function startLoop() {
+    if (animationId || !canvasVisible || document.hidden) return;
+    if (motionQuery.matches) {
+      // Frame unique, pas de boucle rAF
+      draw(performance.now());
+      return;
+    }
+    animationId = requestAnimationFrame(loop);
+  }
+
   // Pause l'animation quand le canvas sort du viewport (économie CPU/GPU)
   const canvasObserver = new IntersectionObserver((entries) => {
     canvasVisible = entries[0].isIntersecting;
-    if (canvasVisible && !animationId && !document.hidden) {
-      animationId = requestAnimationFrame(loop);
-    }
+    if (canvasVisible) startLoop();
   }, { threshold: 0 });
   canvasObserver.observe(canvas);
-  
+
   function loop(timestamp) {
-    if (!canvasVisible || document.hidden) {
+    if (!canvasVisible || document.hidden || motionQuery.matches) {
       animationId = null;
       return;
     }
@@ -595,19 +612,33 @@ document.getElementById('annee-footer').textContent = new Date().getFullYear();
     draw(timestamp);
     animationId = requestAnimationFrame(loop);
   }
-  
+
   window.addEventListener('resize', resize);
   resize();
-  animationId = requestAnimationFrame(loop);
-  
+  startLoop();
+
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
       if (animationId) {
         cancelAnimationFrame(animationId);
         animationId = null;
       }
-    } else if (canvasVisible) {
-      animationId = requestAnimationFrame(loop);
+    } else {
+      startLoop();
+    }
+  });
+
+  // Réagit au changement de préférence système (ex. utilisateur active/désactive
+  // "réduire les animations" pendant la session)
+  motionQuery.addEventListener('change', () => {
+    if (motionQuery.matches) {
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+        animationId = null;
+      }
+      draw(performance.now());
+    } else {
+      startLoop();
     }
   });
 })();

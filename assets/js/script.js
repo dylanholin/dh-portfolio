@@ -106,6 +106,30 @@ document.getElementById('annee-footer').textContent = new Date().getFullYear();
   
   let stars = [], trails = [], spaceObjects = [], nebulaClouds = [], exclusionZones = [];
 
+  // Canvas offscreen pour les nébuleuses : rendu statique dessiné 1 fois dans init()
+  // puis blitté chaque frame via drawImage (beaucoup moins cher qu'un gradient par frame)
+  const nebulaCanvas = document.createElement('canvas');
+  const nebulaCtx = nebulaCanvas.getContext('2d');
+
+  function renderNebulaLayer() {
+    nebulaCanvas.width = W;
+    nebulaCanvas.height = H;
+    nebulaCtx.clearRect(0, 0, W, H);
+    nebulaClouds.forEach(cloud => {
+      const gradient = nebulaCtx.createRadialGradient(
+        cloud.x, cloud.y, 0,
+        cloud.x, cloud.y, cloud.radius
+      );
+      gradient.addColorStop(0, cloud.color);
+      gradient.addColorStop(1, 'transparent');
+      nebulaCtx.globalAlpha = cloud.alpha;
+      nebulaCtx.fillStyle = gradient;
+      nebulaCtx.fillRect(cloud.x - cloud.radius, cloud.y - cloud.radius,
+                         cloud.radius * 2, cloud.radius * 2);
+    });
+    nebulaCtx.globalAlpha = 1;
+  }
+
   // Calcule les zones protégées depuis les positions réelles des éléments texte
   function calcExclusionZones() {
     exclusionZones = [];
@@ -185,6 +209,8 @@ document.getElementById('annee-footer').textContent = new Date().getFullYear();
         alpha: 0.1 + Math.random() * 0.15
       });
     }
+    // Pré-rendu des nébuleuses dans le canvas offscreen (statique)
+    renderNebulaLayer();
     
     // Étoiles de fond (beaucoup plus)
     stars = [];
@@ -535,19 +561,9 @@ document.getElementById('annee-footer').textContent = new Date().getFullYear();
   function draw(timestamp) {
     ctx.clearRect(0, 0, W, H);
     
-    // Nébuleuses de fond
-    nebulaClouds.forEach(cloud => {
-      const gradient = ctx.createRadialGradient(
-        cloud.x, cloud.y, 0,
-        cloud.x, cloud.y, cloud.radius
-      );
-      gradient.addColorStop(0, cloud.color);
-      gradient.addColorStop(1, 'transparent');
-      ctx.globalAlpha = cloud.alpha;
-      ctx.fillStyle = gradient;
-      ctx.fillRect(cloud.x - cloud.radius, cloud.y - cloud.radius, 
-                   cloud.radius * 2, cloud.radius * 2);
-    });
+    // Nébuleuses de fond (canvas offscreen pré-rendu)
+    ctx.globalAlpha = 1;
+    ctx.drawImage(nebulaCanvas, 0, 0);
     
     // Étoiles
     const now = timestamp * 0.001;
@@ -581,6 +597,8 @@ document.getElementById('annee-footer').textContent = new Date().getFullYear();
   
   let animationId = null;
   let canvasVisible = true;
+  let lastFrameTime = 0;
+  const MIN_FRAME_DELTA = 1000 / 60; // plafonne à ~60 FPS (écrans 120/144 Hz)
 
   // Respect de prefers-reduced-motion : on dessine une seule frame statique
   // et on n'anime pas (positions/flammes/scintillement figés).
@@ -608,12 +626,22 @@ document.getElementById('annee-footer').textContent = new Date().getFullYear();
       animationId = null;
       return;
     }
+    if (timestamp - lastFrameTime < MIN_FRAME_DELTA) {
+      animationId = requestAnimationFrame(loop);
+      return;
+    }
+    lastFrameTime = timestamp;
     update();
     draw(timestamp);
     animationId = requestAnimationFrame(loop);
   }
 
-  window.addEventListener('resize', resize);
+  // Debounce du resize : évite de ré-initialiser étoiles/nébuleuses à chaque event
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(resize, 150);
+  });
   resize();
   startLoop();
 

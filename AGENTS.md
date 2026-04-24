@@ -10,6 +10,25 @@ Instructions pour les assistants IA (Cascade, Cursor, Copilot, Claude Code, etc.
 - Production : https://dylanholin.github.io/dh-portfolio
 - Repo : https://github.com/dylanholin/dh-portfolio
 
+## Réflexion avant action (règle méta)
+
+Avant toute modification non triviale (plus qu'un renommage ou une correction de typo), l'IA doit :
+
+1. **Lire le code existant** (`read_file`, `grep_search`) plutôt que deviner.
+2. **Identifier les impacts potentiels** via une checklist mentale :
+   - Conflit avec la CSP stricte ?
+   - Conflit avec `prefers-reduced-motion` ?
+   - Régression a11y (focus, aria, skip link, contraste) ?
+   - Spécificité ou cascade CSS (`!important` ailleurs ?) ?
+   - Dépendance externe introduite ?
+   - Contrainte GitHub Pages cassée (backend, build, header HTTP) ?
+   - Conflit avec une règle de ce fichier ?
+3. **Flagger honnêtement les risques** à l'utilisateur, même s'il ne les a pas demandés. Ne jamais exécuter aveuglément une instruction qui pourrait casser le code.
+4. **Admettre qu'utilisateur et IA peuvent tous deux se tromper** : une demande peut contredire une règle par mégarde, une proposition d'IA peut reposer sur une hypothèse fausse. Dans le doute, préférer une question courte à une action hasardeuse.
+5. **Vérifier l'absence d'erreur de logique après édition** (valeurs magiques, conflits de cascade, callbacks mal ordonnés, race conditions, ordre de déclaration des `const`/`let`).
+
+Cette règle prime sur la rapidité d'exécution.
+
 ## Contraintes d'hébergement (GitHub Pages)
 
 - Serveur statique pur : **pas de backend, pas de headers HTTP personnalisés, pas de build serveur**.

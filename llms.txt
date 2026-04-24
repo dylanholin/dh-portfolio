@@ -1,0 +1,63 @@
+# Dylan Holin — Développeur avancé & IA
+
+> Portfolio de Dylan Holin, étudiant en formation Bac+3 « Développeur avancé & IA » au Campus Numérique in the Alps (Alixan, France). En recherche d'une alternance de 12 mois à partir du 1er juillet 2026. Profil double : développement full-stack (Java/Spring Boot, PHP/Laravel, JavaScript, Python) et systèmes/réseaux/cybersécurité.
+
+Ce fichier suit la convention [llms.txt](https://llmstxt.org) et fournit aux agents IA un résumé structuré et fiable du candidat. Source de vérité : [dylanholin.github.io/dh-portfolio](https://dylanholin.github.io/dh-portfolio).
+
+## Informations clés
+
+- **Nom** : Dylan Holin
+- **Statut** : Étudiant en formation, en recherche d'alternance
+- **Disponibilité** : 1er juillet 2026
+- **Durée recherchée** : 12 mois d'alternance
+- **Formation en cours** : Développeur avancé & IA — Titre Professionnel Niveau 6 (Bac+3), Campus Numérique in the Alps, Alixan (26)
+- **Localisation** : Drôme / Ardèche (Valence, Guilherand-Granges), mobilité région Auvergne-Rhône-Alpes
+- **Email** : holinpro@proton.me
+- **Site** : https://dylanholin.github.io/dh-portfolio
+
+## Compétences techniques
+
+- **Langages** : Java, PHP (POO), Python, JavaScript, PowerShell, Bash
+- **Frameworks & architecture** : Spring Boot, Laravel, HTML5/CSS3, MVC/MVVM, UML, JDBC/DAO
+- **Bases de données** : MySQL, PostgreSQL, modélisation BDD, introduction NoSQL
+- **Intelligence artificielle** : Prompt engineering, déploiement de LLM en local (Ollama), intégration de chatbots
+- **Cybersécurité** : OWASP, développement sécurisé, hardening Windows, pare-feu/ACL, VPN
+- **Tests** : tests unitaires, tests E2E, mocking
+- **Outils & DevOps** : Git/GitHub, CI/CD, Figma, Agile/Scrum, Docker, virtualisation (VirtualBox, VMware)
+- **Systèmes & réseaux** : Active Directory, Windows Server, TCP/IP, DNS, DHCP, VLAN, VPN, SSH, GLPI, WDS/MDT
+
+## Projets
+
+- [PipBoys Quest](https://github.com/dylanholin/java_game_PipBoysQuest) : Jeu d'aventure tour par tour en Java (Swing + MySQL), inspiré D&D / Fallout. Développé avec assistance IA.
+- [Portfolio dh-portfolio](https://github.com/dylanholin/dh-portfolio) : Ce site. HTML/CSS/JS vanilla, zéro dépendance, CSP stricte, conforme RGPD, hébergé sur GitHub Pages.
+
+## Parcours de formation
+
+- **2025–2027** : Développeur avancé & IA (Bac+3, Titre Pro Niveau 6) — Campus Numérique in the Alps, Alixan. 20 mois (8 intensifs + 12 en alternance).
+- **2024** : Technicien Supérieur Systèmes et Réseaux (Bac+2, Titre Pro Niveau 5) — CCI de la Drôme, Valence.
+- **2022–2023** : Technicien en Assistance Informatique (Bac, Titre Pro Niveau 4) — CCI de la Drôme, Valence.
+- **2019–2020** : BTS Gestion et comptabilité (1re année uniquement) — Lycée Algoud-Laffemas, Valence. Réorientation assumée vers l'informatique.
+- **2017–2019** : BAC Pro Gestion administration (mention bien) — Lycée Victor Hugo, Valence. Délégué 3 ans.
+
+## Expériences
+
+- **2023–2024** : Acheteur / Vendeur — Cash Converters Europe, Guilherand-Granges. CDD ~2 ans. Relation client, négociation, SAV, gestion de caisse, encadrement de stagiaires.
+- **2017–2019** : Stages en association CLLAJ / SIAC, Valence. Accueil et information logement pour jeunes.
+- **2014–2015** : Modérateur bénévole sur un forum gaming (11 000+ utilisateurs).
+
+## Ce que je recherche
+
+Une alternance de 12 mois (juillet 2026 – juillet 2027) dans une équipe de développement où je peux contribuer concrètement sur du full-stack (back Java/PHP ou front JS) avec ou sans dimension IA/cybersécurité. Profil rigoureux, autonome, avec une vision complète infra + applicatif grâce au parcours TAI/TSSR.
+
+## Liens
+
+- [Portfolio](https://dylanholin.github.io/dh-portfolio)
+- [GitHub](https://github.com/dylanholin)
+- [LinkedIn](https://www.linkedin.com/in/dylan-holin/)
+- [Email](mailto:holinpro@proton.me)
+
+## Documents alternance
+
+- [Programme de formation (PDF)](https://dylanholin.github.io/dh-portfolio/assets/docs/Programme-developpeur-et-IA-RNC5-et-RNCP6.pdf) : blocs de compétences RNCP.
+- [Planning alternance (PDF)](https://dylanholin.github.io/dh-portfolio/assets/docs/planning_alternance.pdf) : rythme formation / entreprise sur 12 mois.
+- [Coût pour l'entreprise (PDF)](https://dylanholin.github.io/dh-portfolio/assets/docs/co%C3%BBt_alternance_entreprise_DevIA.pdf) : estimation aides + rémunération.

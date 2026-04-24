@@ -105,7 +105,7 @@ Aucune suite de tests automatisée n'existe (YAGNI sur ce projet). Avant de prop
 - `index.html` (meta CSP, headers sécurité) : modifier avec justification.
 - `llms.txt` : résumé public destiné aux IA externes ; maintenir à jour à chaque modif du CV (disponibilité, projets, formations).
 - `assets/docs/*.pdf` : documents officiels d'alternance, ne pas renommer.
-- `README.md` : documentation publique du projet, ton professionnel.
+- `README.md` : documentation publique du projet, ton professionnel. **À tenir à jour** — avant chaque commit/push, vérifier si les modifications impactent le README (nouvelle fonctionnalité, nouveau fichier à la racine, stack modifiée, contrainte technique mentionnée, section déplacée…). Adapter dans le même commit atomique si possible, sinon dans un commit `docs(readme): ...` séparé immédiatement après.
 
 ## Checklist avant de proposer un changement
 
@@ -115,3 +115,4 @@ Aucune suite de tests automatisée n'existe (YAGNI sur ce projet). Avant de prop
 - [ ] Pas de nouvelle dépendance externe sans validation explicite.
 - [ ] Commit atomique avec message Conventional Commits en français.
 - [ ] Pas de régression a11y (skip link, focus, aria).
+- [ ] `README.md` à jour si le changement impacte la doc publique (nouvelle section, nouveau fichier, stack, contrainte, structure).

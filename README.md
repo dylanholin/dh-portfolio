@@ -38,7 +38,7 @@ Ce portfolio applique les bonnes pratiques de sécurité et de confidentialité 
 - `Referrer-Policy: no-referrer` - Confidentialité des référents
 - `Permissions-Policy` - Géolocalisation, caméra, microphone désactivés
 
-> Note : `X-XSS-Protection` n'est volontairement pas utilisé (déprécié, retiré de Chrome, déconseillé par OWASP — il peut introduire des vulnérabilités dans certains scénarios). La protection repose sur la CSP stricte.
+> Note : `X-XSS-Protection` n'est volontairement pas utilisé (déprécié, retiré de Chrome, déconseillé par OWASP, il peut introduire des vulnérabilités dans certains scénarios). La protection repose sur la CSP stricte.
 
 ### Ce qui est privacy-friendly
 
@@ -68,7 +68,7 @@ Objectif WCAG 2.1 AA. Concrètement :
 - Focus trap dans les modales (mentions légales, confidentialité)
 - `aria-label`, `aria-labelledby`, `role="list"` (workaround Safari sur les listes stylées)
 - SVG décoratifs avec `aria-hidden`, SVG porteurs de sens avec `aria-label`
-- **`prefers-reduced-motion` détecté automatiquement** : si le visiteur a activé l'option « Réduire les animations » dans les paramètres de son système (Windows, macOS, iOS, Android) ou de son navigateur, le site le détecte via l'API `matchMedia` et adapte le rendu — les animations CSS sont désactivées (y compris le blink du logo), le scroll smooth devient instantané, et le canvas spatial passe en mode statique. C'est un confort essentiel pour les personnes sensibles au mouvement (troubles vestibulaires, migraines).
+- **`prefers-reduced-motion` détecté automatiquement** : si le visiteur a activé l'option « Réduire les animations » dans les paramètres de son système (Windows, macOS, iOS, Android) ou de son navigateur, le site le détecte via l'API `matchMedia` et adapte le rendu : les animations CSS sont désactivées (y compris le blink du logo), le scroll smooth devient instantané, et le canvas spatial passe en mode statique. C'est un confort essentiel pour les personnes sensibles au mouvement (troubles vestibulaires, migraines).
 - Styles d'impression fournis (oui, certains recruteurs impriment encore les CV)
 
 ## Structure
@@ -90,13 +90,13 @@ dh-portfolio/
 
 Deux fichiers dédiés suivent les conventions émergentes en 2026. Ils ont chacun un rôle précis et **ne se chevauchent pas** :
 
-- **`llms.txt`** — Résumé public destiné aux IA qui **consomment** le site (un recruteur qui demande à ChatGPT "résume-moi ce candidat"). Format [llmstxt.org](https://llmstxt.org).
-- **`AGENTS.md`** — Instructions destinées aux IA qui **développent** sur le code (Cascade, Cursor, Copilot, Claude Code). Documente les contraintes GitHub Pages, la CSP, les règles d'accessibilité et le workflow Git attendu.
+- **`llms.txt`** : Résumé public destiné aux IA qui **consomment** le site (un recruteur qui demande à ChatGPT "résume-moi ce candidat"). Format [llmstxt.org](https://llmstxt.org).
+- **`AGENTS.md`** : Instructions destinées aux IA qui **développent** sur le code (Cascade, Cursor, Copilot, Claude Code). Documente les contraintes GitHub Pages, la CSP, les règles d'accessibilité et le workflow Git attendu.
 
-Petite experimentation, en 2026 les IA sont présentes partout — autant leur donner un point d'entrée propre plutôt que de les laisser deviner ce qu'il faut faire.
+Petite experimentation, en 2026 les IA sont présentes partout, autant leur donner un point d'entrée propre plutôt que de les laisser deviner ce qu'il faut faire.
 
 ## Contact
 
 - [holinpro@proton.me](mailto:holinpro@proton.me)
 - [LinkedIn](https://www.linkedin.com/in/dylan-holin/) 
-oui Linkedin... j'optimise mes chances, ce n'est pas dans une cave seul que je vais pouvoir progresser, une alternative privacy friendly à linkedin serait bienvenue
+oui... j'optimise mes chances mais une alternative privacy friendly à linkedin serait bienvenue

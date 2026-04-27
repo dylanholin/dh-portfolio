@@ -1318,7 +1318,7 @@ a:focus-visible, .btn:focus-visible, .btn-email:focus-visible {
 
   .nav-liens { display: none; }
 
-  /* Bouton hamburger — touch target 44px */
+  /* Bouton hamburger : touch target 44px */
   .nav-menu-btn {
     display: flex;
     width: 44px;
@@ -1330,7 +1330,7 @@ a:focus-visible, .btn:focus-visible, .btn-email:focus-visible {
   [aria-expanded="true"].nav-menu-btn span:nth-child(2) { opacity: 0; transform: scaleX(0); }
   [aria-expanded="true"].nav-menu-btn span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
-  /* Menu ouvert — espacement, profondeur, animation */
+  /* Menu ouvert : espacement, profondeur, animation */
   .nav-liens.open {
     display: flex;
     flex-direction: column;
@@ -1349,7 +1349,7 @@ a:focus-visible, .btn:focus-visible, .btn-email:focus-visible {
     animation: nav-slide-down 0.22s ease-out;
   }
 
-  /* Liens — touch targets 48px + séparation visuelle */
+  /* Liens : touch targets 48px + séparation visuelle */
   .nav-liens.open a {
     width: 100%;
     min-height: 48px;
@@ -1376,7 +1376,7 @@ a:focus-visible, .btn:focus-visible, .btn-email:focus-visible {
     color: var(--primary);
   }
 
-  /* Bouton CTA Contact — taille cohérente, séparé visuellement */
+  /* Bouton CTA Contact : taille cohérente, séparé visuellement */
   .nav-principale .nav-liens.open .nav-cta {
     width: 100%;
     min-height: 48px;

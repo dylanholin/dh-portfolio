@@ -1161,7 +1161,13 @@ img { max-width: 100%; display: block; }
   color: var(--text-secondary);
   line-height: 1.8;
 }
-.contact-email { margin-top: var(--space-xl); }
+.contact-email {
+  margin-top: var(--space-xl);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
 
 /* Bouton email */
 .btn-email {
@@ -1198,6 +1204,9 @@ img { max-width: 100%; display: block; }
 }
 .btn-email:hover::before { opacity: 1; }
 .btn-email svg, .btn-email span { position: relative; z-index: 1; }
+
+/* Variante secondaire pour le bouton CV */
+.btn-cv { background: transparent; }
 
 /* ===== FOOTER ===== */
 .site-footer {

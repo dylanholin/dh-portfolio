@@ -2,7 +2,7 @@
 
 Instructions pour les assistants IA (Cascade, Cursor, Copilot, Claude Code, etc.) travaillant sur ce dépôt.
 
-> Ce fichier suit la convention émergente AGENTS.md, utilisée par plusieurs assistants IA en 2026 (Codex, Cursor, Cascade, Claude Code, etc.). Il ne s'adresse **pas** aux IA externes (recruteurs, crawlers) — pour cela voir [`llms.txt`](./llms.txt).
+> Ce fichier suit la convention émergente AGENTS.md, utilisée par plusieurs assistants IA en 2026 (Codex, Cursor, Cascade, Claude Code, etc.). Il ne s'adresse **pas** aux IA externes (recruteurs, crawlers), pour cela voir [`llms.txt`](./llms.txt).
 
 ## Contexte du projet
 
@@ -33,7 +33,7 @@ Cette règle prime sur la rapidité d'exécution.
 
 - Serveur statique pur : **pas de backend, pas de headers HTTP personnalisés, pas de build serveur**.
 - Jekyll est actif par défaut ; ce projet n'utilise pas ses fonctionnalités (pas de front matter, pas de `_config.yml`).
-- Les fichiers commençant par `_` seraient ignorés — il n'y en a aucun, ne pas en créer.
+- Les fichiers commençant par `_` seraient ignorés, il n'y en a aucun, ne pas en créer.
 - Un push sur `main` déclenche le déploiement automatique.
 
 ## Stack technique
@@ -52,7 +52,7 @@ Cette règle prime sur la rapidité d'exécution.
 │   ├── images/         # favicon.svg, og-image (png + svg)
 │   └── docs/           # PDF officiels d'alternance (ne pas renommer)
 ├── llms.txt            # Résumé public pour IA externes (recruteurs)
-├── AGENTS.md           # Ce fichier — instructions pour IA dev
+├── AGENTS.md           # Ce fichier (instructions pour IA dev)
 └── README.md           # Documentation humaine du projet
 ```
 
@@ -95,6 +95,7 @@ Puis ouvrir http://localhost:8000. Un simple double-clic sur `index.html` foncti
 - **CSS** : variables dans `:root`, nommage kebab-case, pas de `!important` sauf justification.
 - **JS** : pas de `var`, préférer `const` ; IIFE pour le code isolé (cf. canvas spatial) ; écouteurs `{ passive: true }` pour `scroll`.
 - Pas de commentaires parasites ou blagues dans le code de prod.
+- **Aucun tiret cadratin (`—`, em dash) ni demi-cadratin (`–`, en dash) dans le contenu rédigé en français** (HTML, Markdown, CSS/JS commentaires, llms.txt, CV, README). Ces signes font « rédigé par IA » et ne sont pas usuels en français pratique. Utiliser à la place : virgule, parenthèses, deux-points, tiret simple `-` (pour les plages de dates type `2023-2024`), ou point médian `·`. Vérification systématique avant tout commit : `grep -n "[—–]" .` doit ne rien remonter sur les fichiers de contenu.
 
 ## Validation des changements
 
@@ -111,12 +112,12 @@ Aucune suite de tests automatisée n'existe (YAGNI sur ce projet). Avant de prop
 
 - Commits atomiques : **une intention = un commit**. Pas de god commit.
 - Format Conventional Commits, messages en français :
-  - `feat(scope): ...` — nouvelle fonctionnalité
-  - `fix(scope): ...` — correction de bug
-  - `chore(scope): ...` — maintenance, nettoyage
-  - `docs(scope): ...` — documentation
-  - `refactor(scope): ...` — refacto sans changement fonctionnel
-  - `style(scope): ...` — mise en forme, CSS cosmétique
+  - `feat(scope): ...` : nouvelle fonctionnalité
+  - `fix(scope): ...` : correction de bug
+  - `chore(scope): ...` : maintenance, nettoyage
+  - `docs(scope): ...` : documentation
+  - `refactor(scope): ...` : refacto sans changement fonctionnel
+  - `style(scope): ...` : mise en forme, CSS cosmétique
 - Push direct sur `main` (déploiement GH Pages). Pas de branches par défaut, mais les encourager pour les gros changements.
 
 ## Fichiers sensibles
@@ -124,7 +125,7 @@ Aucune suite de tests automatisée n'existe (YAGNI sur ce projet). Avant de prop
 - `index.html` (meta CSP, headers sécurité) : modifier avec justification.
 - `llms.txt` : résumé public destiné aux IA externes ; maintenir à jour à chaque modif du CV (disponibilité, projets, formations).
 - `assets/docs/*.pdf` : documents officiels d'alternance, ne pas renommer.
-- `README.md` : documentation publique du projet, ton professionnel. **À tenir à jour** — avant chaque commit/push, vérifier si les modifications impactent le README (nouvelle fonctionnalité, nouveau fichier à la racine, stack modifiée, contrainte technique mentionnée, section déplacée…). Adapter dans le même commit atomique si possible, sinon dans un commit `docs(readme): ...` séparé immédiatement après.
+- `README.md` : documentation publique du projet, ton professionnel. **À tenir à jour** : avant chaque commit/push, vérifier si les modifications impactent le README (nouvelle fonctionnalité, nouveau fichier à la racine, stack modifiée, contrainte technique mentionnée, section déplacée…). Adapter dans le même commit atomique si possible, sinon dans un commit `docs(readme): ...` séparé immédiatement après.
 
 ## Checklist avant de proposer un changement
 

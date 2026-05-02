@@ -474,6 +474,7 @@ img { max-width: 100%; display: block; }
 .lien-social {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   color: var(--text-secondary);
   font-size: 0.85rem;
@@ -1015,11 +1016,11 @@ img { max-width: 100%; display: block; }
 .formation-secondaire:hover { opacity: 1; }
 
 .contact-sociaux {
-  margin-top: 2rem;
-  display: flex;
+  margin: 2rem auto 0;
+  max-width: 380px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
 }
 
 /* Style pour les listes de compétences dans expériences */
@@ -1161,18 +1162,26 @@ img { max-width: 100%; display: block; }
   color: var(--text-secondary);
   line-height: 1.8;
 }
+.contact-intro .contact-note {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
 .contact-email {
-  margin-top: var(--space-xl);
-  display: flex;
-  flex-wrap: wrap;
+  margin: var(--space-xl) auto 0;
+  max-width: 580px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1rem;
-  justify-content: center;
+  align-items: stretch;
 }
 
 /* Bouton email */
 .btn-email {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.75rem;
   background: var(--surface);
   color: var(--text-primary);

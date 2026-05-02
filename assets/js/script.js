@@ -729,3 +729,30 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     }
   });
 });
+
+// ── Bouton "Copier l'email" ──
+// Copie la valeur de data-copy dans le presse-papier, swap d'icône
+// instantané (.copied), revert après 2s, annonce SR via aria-live.
+document.querySelectorAll('.btn-copy').forEach(btn => {
+  const labelDefault = btn.getAttribute('aria-label') || 'Copier';
+  const status = document.getElementById('copy-status');
+  let resetTimer;
+  btn.addEventListener('click', async () => {
+    const text = btn.dataset.copy;
+    if (!text) return;
+    try {
+      await navigator.clipboard.writeText(text);
+      btn.classList.add('copied');
+      btn.setAttribute('aria-label', 'Adresse email copiée');
+      if (status) status.textContent = 'Adresse email copiée dans le presse-papier';
+      clearTimeout(resetTimer);
+      resetTimer = setTimeout(() => {
+        btn.classList.remove('copied');
+        btn.setAttribute('aria-label', labelDefault);
+        if (status) status.textContent = '';
+      }, 2000);
+    } catch (err) {
+      console.error('Échec de la copie dans le presse-papier :', err);
+    }
+  });
+});

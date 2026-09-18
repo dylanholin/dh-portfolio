@@ -1,13 +1,12 @@
 # dh-portfolio
 
-Portfolio de Dylan Holin - Développeur avancé & IA. Premier socle terminé fin juin 2026 (CCP1 du DWWM validé, Niveau 5 ; seul CCP prévu au programme), recherche active d'une alternance de 12 mois pour valider le titre de Concepteur développeur d'applications (CDA, Niveau 6, Bac+3).
+Portfolio personnel
 
 [![Zero Dependencies](https://img.shields.io/badge/Dependencies-0-brightgreen?style=flat-square)](https://github.com/dylanholin/dh-portfolio)
-[![RGPD](https://img.shields.io/badge/RGPD-Compliant-blue?style=flat-square)](https://www.cnil.fr/)
-[![WCAG](https://img.shields.io/badge/WCAG-2.1_AA-8b5cf6?style=flat-square)](https://www.w3.org/WAI/WCAG21/quickref/)
+[![RGPD](https://img.shields.io/badge/RGPD-Privacy--friendly-blue?style=flat-square)](https://www.cnil.fr/)
+[![WCAG](https://img.shields.io/badge/WCAG-2.1_AA_visé-8b5cf6?style=flat-square)](https://www.w3.org/WAI/WCAG21/quickref/)
 [![No Tracking](https://img.shields.io/badge/Tracking-None-critical?style=flat-square)](https://github.com/dylanholin/dh-portfolio)
 
-<img width="1702" height="908" alt="image" src="https://github.com/user-attachments/assets/2de3c4c2-7db2-44c9-a934-a7b42185feb6" />
 
 ## Voir le site
 
@@ -15,93 +14,95 @@ Portfolio de Dylan Holin - Développeur avancé & IA. Premier socle terminé fin
 
 ## Stack
 
-- HTML5 sémantique & accessible (WCAG 2.1 AA visé)
-- CSS3 (custom properties, grid, `@keyframes`, media queries, `prefers-reduced-motion`)
-- JavaScript vanilla ES6+ (IIFE, IntersectionObserver, toggle de thème, modales)
-- **Zéro dépendance externe, zéro build, zéro cookie**
+- HTML5 sémantique et accessible
+- CSS3 : custom properties, Grid, Flexbox, animations `@keyframes`, media queries et `prefers-reduced-motion`
+- JavaScript vanilla ES6+ : navigation mobile, `IntersectionObserver`, thème clair/sombre, modales accessibles, copie de l’adresse email et pagination des projets
+- GitHub Pages pour l’hébergement statique
+- **Zéro dépendance externe, zéro build, zéro cookie, zéro outil d’analytics tiers**
 
-## Sécurité et Confidentialité
+## Sécurité et confidentialité
 
-Parce que votre vie privée mérite mieux et que la sécurité ne doit pas être une option.
+Le projet applique une approche de sécurité et de confidentialité adaptée à un site statique GitHub Pages.
 
-Ce portfolio applique les bonnes pratiques de sécurité et de confidentialité RGPD dès la première ligne de code, le tracking est tout simplement banni et le portfolio applique les recommandations OWASP et RGPD en vigueur
+### Mesures appliquées
 
-### Ce qui est sécurisé
+- Politique de sécurité du contenu (CSP) déclarée dans le document HTML
+- Ressources locales privilégiées : scripts, styles, images et polices système
+- Aucune police Google Fonts ou service tiers chargé par défaut
+- `Referrer-Policy: no-referrer` déclaré dans le document
+- `Permissions-Policy` restrictive : géolocalisation, microphone, caméra, paiement et USB désactivés
+- Balises de compatibilité de sécurité déclarées dans le document HTML
+- Liens externes ouverts avec `rel="noopener noreferrer"`
+- Aucun formulaire de collecte, cookie, tracker ou analytics tiers
+- Adresse de contact Proton Mail
+- Mentions légales et politique de confidentialité disponibles dans le site
 
-**Content-Security-Policy strict:**
-- `default-src 'self'` - Politique par défaut : ressources locales uniquement
-- `script-src 'self'` - Scripts uniquement depuis le domaine (bye bye XSS)
-- `style-src 'self'` - Styles externes uniquement (variables CSS, pas de inline)
-- `img-src 'self' data:` - Images locales uniquement
-- `font-src 'self'` - Polices locales uniquement (variables CSS, pas de Google Fonts)
-- `connect-src 'self'` - Connexions uniquement vers le domaine
-- `base-uri 'self'` - Empêche le détournement de l'URL de base du document
-- `form-action 'self'` - Restreint la cible des formulaires au domaine
+> **Note GitHub Pages :** GitHub Pages est un hébergement statique et ne permet pas de configurer librement des en-têtes HTTP côté serveur. Les protections applicables au niveau du document sont donc déclarées dans `index.html`. Pour un contrôle complet des en-têtes HTTP de sécurité, un reverse proxy ou un hébergement avec configuration serveur serait nécessaire.
 
-**Headers de sécurité (via meta tags http-equiv):**
-- `X-Content-Type-Options: nosniff` - Protection MIME sniffing
-- `X-Frame-Options: DENY` - Anti-clickjacking
-- `Referrer-Policy: no-referrer` - Confidentialité des référents
-- `Permissions-Policy` - Géolocalisation, caméra, microphone désactivés
+### CSP déclarée
 
-> Note : `X-XSS-Protection` n'est volontairement pas utilisé (déprécié, retiré de Chrome, déconseillé par OWASP, il peut introduire des vulnérabilités dans certains scénarios). La protection repose sur la CSP stricte.
+La CSP limite les ressources aux origines attendues :
 
-### Ce qui est privacy-friendly
+- `default-src 'self'`
+- `script-src 'self'`
+- `style-src 'self'`
+- `img-src 'self' data:`
+- `font-src 'self'`
+- `connect-src 'self'`
+- `base-uri 'self'`
+- `form-action 'self'`
 
-- Zéro cookie, zéro tracking, zéro collecte de données
-- Polices système (pas de Google Fonts qui vous traquent)
-- Aucun script d'analytics tiers (pas de Google Analytics)
-- Email Proton.me
-- Mentions légales et politique de confidentialité transparentes
-
-### Contexte GitHub Pages
-
-GitHub Pages ne permet pas les HTTP headers côté serveur (dommage), donc on utilise les meta tags http-equiv. C'est moins efficace que les vrais headers, mais c'est la seule option dans ce cas sur cette plateforme... faut parfois faire avec ce qu'on a.
-
-**Variables CSS pour polices système :** tout est dans `style.css` (`--font-heading`, `--font-body`, `--font-mono`). Pas de CSS inline, donc plus besoin de hash SHA-256. C'est plus simple et propre.
-
-**Pourquoi ces choix :**
-- Meta tags http-equiv = seule solution sur GitHub Pages
-- Variables CSS = bonnes pratiques professionnelles (pas d'inline)
-- CSP stricte simple = optimal sans complexité inutile
+Le projet n’utilise pas `X-XSS-Protection`, mécanisme déprécié et non recommandé comme protection moderne contre les XSS. La défense principale repose sur une CSP restrictive et sur l’absence de scripts tiers ou de code inline inutile.
 
 ## Accessibilité
 
-Objectif WCAG 2.1 AA. Concrètement :
+L’objectif est de viser WCAG 2.1 niveau AA, avec notamment :
 
-- Skip link vers le contenu principal
-- Navigation clavier complète + focus visible partout
-- Focus trap dans les modales (mentions légales, confidentialité)
-- **`prefers-reduced-motion` détecté automatiquement** : si le visiteur a activé l'option « Réduire les animations » dans les paramètres de son système (Windows, macOS, iOS, Android) ou de son navigateur, le site le détecte via l'API `matchMedia` et adapte le rendu : les animations CSS sont désactivées (y compris le blink du logo), le scroll smooth devient instantané, et le canvas spatial passe en mode statique. C'est un confort essentiel pour les personnes sensibles au mouvement (troubles vestibulaires, migraines).
-- **Mode clair/nuit** : le site supporte le mode clair et le mode sombre via `prefers-color-scheme` et un toggle manuel accessible dans la navbar. Le choix utilisateur est persisté via localStorage (préférence locale). Le thème est cohérent sur toutes les sections (navbar, Hero, contact, footer, modales).
-- Styles d'impression fournis PDF
+- Lien d’évitement vers le contenu principal
+- Navigation clavier et styles `:focus-visible`
+- Cibles tactiles adaptées sur mobile
+- Navigation mobile accessible avec bouton et états ARIA
+- Modales avec gestion du focus et fermeture via la touche `Échap`
+- Icônes décoratives masquées des lecteurs d’écran lorsque nécessaire
+- Zone d’annonce `aria-live` après la copie de l’adresse email
+- Respect de `prefers-reduced-motion` : animations et transitions réduites, scroll fluide désactivé pour les personnes qui le demandent
+- Mode clair et sombre détecté via `prefers-color-scheme`, avec sélecteur manuel et préférence conservée en local via `localStorage`
+- Styles d’impression fournis
 
 ## Structure
 
-```
+```text
 dh-portfolio/
-├── index.html           # Page unique (toutes les sections)
+├── index.html           # Page unique : contenu, métadonnées et données structurées
 ├── assets/
-│   ├── css/style.css    # Tous les styles (variables dans :root, responsive en fin)
-│   ├── js/script.js     # Nav, scroll, animations, toggle de thème, modales
-│   ├── images/          # favicon.svg, og-image (png + svg)
-│   └── docs/            # PDF officiels (CV, programme, planning, coût)
-├── llms.txt             # Résumé structuré pour les IA externes (recruteurs)
-├── AGENTS.md            # Instructions pour les IA développeurs (Cascade, Cursor, etc.)
-└── README.md            # Ce fichier
+│   ├── css/style.css    # Variables, thèmes, composants, responsive et impression
+│   ├── js/script.js     # Navigation, animations, thème, modales, copie et projets
+│   ├── images/          # Favicon et images Open Graph
+│   └── docs/            # CV PDF et documents complémentaires
+├── llms.txt             # Résumé structuré destiné aux IA qui consultent le site
+├── AGENTS.md            # Instructions pour les assistants IA qui modifient le projet
+└── README.md            # Documentation du projet
 ```
 
-## Fichiers à destination des IA
+## Fichiers destinés aux IA
 
-Deux fichiers dédiés suivent les conventions émergentes en 2026. Ils ont chacun un rôle précis et **ne se chevauchent pas** :
+Le dépôt contient deux fichiers complémentaires destinés aux usages IA :
 
-- **`llms.txt`** : Résumé public destiné aux IA qui **consomment** le site (un recruteur qui demande à ChatGPT "résume-moi ce candidat"). Format [llmstxt.org](https://llmstxt.org).
-- **`AGENTS.md`** : Instructions destinées aux IA qui **développent** sur le code (Cascade, Cursor, Copilot, Claude Code). Documente les contraintes GitHub Pages, la CSP, les règles d'accessibilité et le workflow Git attendu.
+- **`llms.txt`** : résumé public et structuré pour les IA qui consultent ou résument le portfolio, par exemple dans un contexte de recrutement.
+- **`AGENTS.md`** : règles de contribution pour les assistants de développement tels que Cursor, Copilot, Claude Code ou Cascade ; il documente les contraintes GitHub Pages, CSP, accessibilité et workflow Git.
 
-Petite experimentation, en 2026 les IA sont présentes partout, autant leur donner un point d'entrée propre plutôt que de les laisser deviner ce qu'il faut faire.
+Ces fichiers ont des rôles distincts : `llms.txt` décrit le portfolio, tandis que `AGENTS.md` décrit comment modifier le projet sans casser ses contraintes techniques.
 
 ## Contact
 
-- [holinpro@proton.me](mailto:holinpro@proton.me)
-- [LinkedIn](https://www.linkedin.com/in/dylan-holin/) 
-oui... j'optimise mes chances mais une alternative privacy friendly à linkedin serait bienvenue
+- Email : [holinpro@proton.me](mailto:holinpro@proton.me)
+- GitHub : [github.com/dylanholin](https://github.com/dylanholin)
+- LinkedIn : [linkedin.com/in/dylan-holin](https://www.linkedin.com/in/dylan-holin/)
+- CV Informatique : disponible depuis la section Contact du site
+- CV Commerce & administratif : disponible depuis la section Contact du site
+
+Pour des raisons de sécurité, le numéro de téléphone n’est pas publié en ligne. Il est communiqué par email après un premier échange.
+
+## Licence
+
+Le code source est public à titre de démonstration. Les contenus personnels, CV, documents PDF, identité visuelle et informations professionnelles restent la propriété de Dylan Holin.

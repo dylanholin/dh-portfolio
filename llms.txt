@@ -1,66 +1,90 @@
 # Dylan Holin · Développeur avancé & IA
 
-> Portfolio de Dylan Holin, étudiant en formation « Développeur avancé & IA » au Campus Numérique in the Alps (Alixan, France). Premier socle terminé le 29 juin 2026 : CCP1 du DWWM validé (Niveau 5, seul CCP prévu au programme). Recherche active d'une alternance de 12 mois pour valider le titre de Concepteur développeur d'applications (CDA, Niveau 6, Bac+3). Profil double : développement full-stack (Java/Spring Boot, PHP/Laravel, JavaScript, Python) et systèmes/réseaux/cybersécurité.
+> Portfolio de Dylan Holin, développeur polyvalent disponible immédiatement. Profil combinant développement full-stack (Java/Spring Boot, PHP/Laravel, JavaScript, Python), systèmes/réseaux, support informatique, cybersécurité, ainsi qu’une expérience concrète en commerce et relation client.
 
-Ce fichier suit la convention [llms.txt](https://llmstxt.org) et fournit aux agents IA un résumé structuré et fiable du candidat. Source de vérité : [dylanholin.github.io/dh-portfolio](https://dylanholin.github.io/dh-portfolio).
+Ce fichier suit la convention [llms.txt](https://llmstxt.org) et fournit aux agents IA un résumé structuré et fiable du profil. Source de vérité : [dylanholin.github.io/dh-portfolio](https://dylanholin.github.io/dh-portfolio).
 
 ## Informations clés
 
 - **Nom** : Dylan Holin
-- **Statut** : Étudiant en formation, en recherche d'alternance
-- **Disponibilité** : dès maintenant (recherche active jusqu'au 11 septembre 2026)
-- **Durée recherchée** : 12 mois d'alternance
-- **Formation en cours** : Développeur avancé & IA, Campus Numérique in the Alps, Alixan (26) - https://le-campus-numerique.fr/formations-developpeur2/. CCP1 DWWM (Niveau 5, validé ; seul CCP prévu au programme) + CDA (Niveau 6, Bac+3, à valider en alternance)
-- **Localisation** : Drôme / Ardèche (Valence, Guilherand-Granges), mobilité France entière (présentiel ou hybride)
-- **Email** : holinpro@proton.me
-- **Site** : https://dylanholin.github.io/dh-portfolio
+- **Disponibilité** : immédiate
+- **Profil** : polyvalent, sérieux et autonome ; souhaite rejoindre une équipe, contribuer à des projets concrets et continuer à progresser professionnellement et techniquement
+- **Localisation** : Drôme / Ardèche (Valence, Guilherand-Granges) ; mobilité France entière, postes en présentiel ou hybride
+- **Email** : [holinpro@proton.me](mailto:holinpro@proton.me)
+- **Site** : [https://dylanholin.github.io/dh-portfolio](https://dylanholin.github.io/dh-portfolio)
+
+## Résumé professionnel
+
+Dylan Holin est un profil polyvalent disposant de compétences en développement, systèmes et réseaux, support informatique et cybersécurité.
+
+Il a acquis près de deux ans d’expérience dans l’achat et la vente de produits d’occasion en magasin : accueil et conseil client, estimation, négociation, contrôle de produits, SAV, gestion de caisse et suivi d’activité. Cette expérience a renforcé son sens du service, sa rigueur, son autonomie et sa capacité à gérer les priorités.
+
+Formé à travers les parcours TAI et TSSR, ainsi qu’en développement et intelligence artificielle, il peut intervenir sur des sujets de développement, de systèmes, de réseaux et de support technique.
 
 ## Compétences techniques
 
-- **Langages & frameworks** : Java, PHP (POO), JavaScript, Python, HTML5/CSS3, Spring Boot, Laravel, PowerShell, Bash
-- **Architecture & patterns** : MVC/MVVM, UML, JDBC/DAO
-- **Bases de données** : MySQL, PostgreSQL, modélisation BDD, introduction NoSQL
-- **Intelligence artificielle** : Prompt engineering, workflows, déploiement IA en local
-- **Cybersécurité** : OWASP, développement sécurisé, hardening Windows, CSP, pare-feu/ACL, VPN
-- **Outils & méthodes** : Git/GitHub, CI/CD, Docker, virtualisation (VirtualBox, VMware), Figma (UI/UX), Agile/Scrum, tests unitaires (JUnit), tests E2E, mocking, veille technologique
-- **Systèmes & réseaux** : Active Directory, Windows Server, GPO, TCP/IP, DNS, DHCP, VLAN, VPN, SSH, GLPI, WDS/MDT
-- **Support & Infrastructure** : Windows 10/11, distributions Linux, maintenance matérielle & diagnostic, installation/configuration postes, support utilisateur
+- **Back-end** : Java, Spring Boot, Python, PHP orienté objet, Laravel, JDBC/DAO
+- **Web** : JavaScript, HTML5, CSS3
+- **Architecture & conception** : MVC/MVVM, UML, architecture DAO, architecture hexagonale (Ports & Adapters)
+- **Données** : SQL, MySQL, PostgreSQL, modélisation de bases de données, notions de NoSQL
+- **Systèmes & réseaux** : Windows Server, Active Directory, GPO, TCP/IP, DNS, DHCP, VLAN, pfSense, VPN, SSH, virtualisation, WDS/MDT, GLPI
+- **Support & infrastructure** : Windows 10/11, distributions Linux, maintenance matérielle, diagnostic, installation et configuration de postes, support utilisateur
+- **Cybersécurité** : OWASP, développement sécurisé, CSP, hardening Windows, pare-feu et ACL, VPN, bonnes pratiques de sécurité réseau
+- **Outils & méthodes** : Git, GitHub, Docker, CI/CD, Maven, Composer, tests unitaires avec JUnit, GitHub Actions, Agile/Scrum, Figma, veille technologique
+- **Intelligence artificielle** : prompt engineering, workflows, déploiement local de modèles de langage
+
+## Compétences professionnelles complémentaires
+
+- Relation client, accueil, conseil, vente et négociation
+- Achat, estimation et contrôle de produits d’occasion
+- SAV, retours et diagnostics de premier niveau
+- Gestion de caisse, gestion de coffre, clôtures et respect des procédures
+- Inventaires, tableaux de suivi Excel et organisation de magasin
+- Accompagnement et formation de nouveaux collaborateurs
+- Modération et entraide au sein d’une communauté en ligne
+
+## Domaines et postes ciblés
+
+Dylan Holin recherche une équipe dans laquelle contribuer concrètement tout en continuant à progresser.
+
+Domaines d’intervention privilégiés :
+
+- Développement junior et développement full-stack
+- Développement back-end Java / Spring Boot ou PHP / Laravel
+- Développement web JavaScript, HTML et CSS
+- Systèmes, réseaux et support informatique
+- Administration systèmes junior et support utilisateur
+- Cybersécurité, sécurisation applicative et infrastructure
+- Postes administratifs ou commerciaux demandant rigueur, autonomie et sens du service
 
 ## Projets
 
-- [cybersec-bad-folio](https://github.com/dylanholin/cybersec-bad-folio) : Application portfolio étudiant (Spring Boot 3.5 + Vue 3 + MariaDB). Audit et correction OWASP Top 10 2025, CI/CD GitHub Actions, containerisation Docker. Site déployé et fonctionnel en production, fail2ban a bloqué plus de 1000 connexions au VPS en 48h.
-- [WinMorph](https://github.com/dylanholin/winmorph) : Outils natifs Windows (PowerShell / Batch) pour brouiller les empreintes système et réseau. Déploiement via GPO ou planificateur de tâches. Basé sur des scripts de formation TSSR, en phase de test.
-- [PipBoys Quest](https://github.com/dylanholin/java_game_PipBoysQuest) : Jeu d'aventure tour par tour en Java (Swing + MySQL), inspiré D&D / Fallout. Développé avec assistance IA.
-- [SquareGames](https://github.com/dylanholin/SquareGames) : Application de jeux de plateau (TicTacToe, Puissance 4, Taquin) en Java 21 + Spring Boot 3.5. Architecture hexagonale (Ports & Adapters), microservices, authentification JWT, base H2.
-- [Portfolio dh-portfolio](https://github.com/dylanholin/dh-portfolio) : Ce site. HTML/CSS/JS vanilla, zéro dépendance, CSP stricte, conforme RGPD, hébergé sur GitHub Pages.
+- [cybersec-bad-folio](https://github.com/dylanholin/cybersec-bad-folio) : application portfolio étudiante avec Spring Boot 3.5, Vue 3 et MariaDB. Audit et correction de vulnérabilités OWASP Top 10 2025, CI/CD GitHub Actions, containerisation Docker, reverse proxy Nginx et déploiement sur VPS durci.
+- [WinMorph](https://github.com/dylanholin/winmorph) : outils Windows en PowerShell et Batch pour brouiller certaines empreintes système et réseau, avec déploiement via GPO ou planificateur de tâches.
+- [PipBoys Quest](https://github.com/dylanholin/java_game_PipBoysQuest) : jeu d’aventure au tour par tour en Java, interface Swing et persistance MySQL lorsque disponible.
+- [SquareGames](https://github.com/dylanholin/SquareGames) : application de jeux de plateau en Java 21 et Spring Boot 3.5, architecture hexagonale, microservices, JWT et base H2.
+- [Portfolio dh-portfolio](https://github.com/dylanholin/dh-portfolio) : portfolio personnel en HTML, CSS et JavaScript vanilla ; zéro dépendance, pas de tracking tiers, thèmes clair/sombre, accessibilité et hébergement GitHub Pages.
 
 ## Parcours de formation
 
-- **2025-2027** : Développeur avancé & IA, Campus Numérique in the Alps, Alixan. 20 mois : 8 intensifs (CCP1 DWWM validé, Niveau 5, juin 2026 ; seul CCP prévu au programme) + 12 en alternance (CDA, Niveau 6, Bac+3).
-- **2024** : Technicien Supérieur Systèmes et Réseaux (Bac+2, Titre Pro Niveau 5), CCI de la Drôme, Valence.
-- **2022-2023** : Technicien en Assistance Informatique (Bac, Titre Pro Niveau 4), CCI de la Drôme, Valence.
-- **2019-2020** : BTS Gestion et comptabilité (1re année uniquement), Lycée polyvalent Algoud-Laffemas, Valence. Réorientation assumée vers l'informatique.
-- **2017-2019** : BAC Pro Gestion administration (mention bien), Lycée Victor Hugo, Valence. Délégué 3 ans, dont 2 au conseil de discipline.
+- **2025-2026** : Développeur avancé & IA, Campus Numérique in the Alps, Alixan. CCP1 du DWWM validé (niveau 5).
+- **2024** : Technicien Supérieur Systèmes et Réseaux (Titre Professionnel niveau 5), CCI de la Drôme, Valence.
+- **2022-2023** : Technicien en Assistance Informatique (Titre Professionnel niveau 4), CCI de la Drôme, Valence.
+- **2019-2020** : BTS Gestion et comptabilité, première année, Lycée polyvalent Algoud-Laffemas, Valence.
+- **2017-2019** : Bac Professionnel Gestion-Administration, mention bien, Lycée Victor Hugo, Valence.
 
 ## Expériences
 
-- **2023-2024** : Acheteur / Vendeur, Cash Converters Europe, Guilherand-Granges. CDD ~2 ans. Relation client, négociation, SAV, gestion de caisse, encadrement d'une alternante et d'une stagiaire, gestion du coffre (~500 à 5 000 €).
-- **2017-2019** : Stages dans une association (CLLAJ / SIAC), Valence. Accueil et information logement pour jeunes.
-- **2014-2015** : Modérateur bénévole sur un forum gaming (11 000+ utilisateurs).
+- **2023-2024** : Acheteur / Vendeur, Cash Converters Europe, Guilherand-Granges. Relation client, estimation, négociation, contrôle qualité, vente, SAV, caisse, inventaires, suivi d’activité, clôtures, gestion quotidienne du coffre et accompagnement d’une alternante ainsi que d’une stagiaire.
+- **2017-2019** : Stages dans une association, CLLAJ / SIAC, Valence. Accueil de jeunes, information et conseil liés au logement.
+- **2014-2015** : Modérateur bénévole sur un forum gaming. Entraide communautaire, modération et accompagnement d’utilisateurs.
 
-## Ce que je recherche
-
-Une alternance de 12 mois pour valider le titre de Concepteur développeur d'applications (CDA, Niveau 6, Bac+3) en présentiel ou hybride (France entière), dans une équipe de développement où je peux contribuer concrètement sur du back-end, full-stack (back Java/PHP ou front JS), de l'IA et des sujets systèmes/réseaux/cybersécurité. Profil rigoureux, autonome, avec une vision complète infra + applicatif grâce au parcours TAI/TSSR.
-
-## Liens
+## Contact et documents
 
 - [Portfolio](https://dylanholin.github.io/dh-portfolio)
 - [GitHub](https://github.com/dylanholin)
 - [LinkedIn](https://www.linkedin.com/in/dylan-holin/)
 - [Email](mailto:holinpro@proton.me)
+- Deux CV sont disponibles depuis la section Contact du portfolio : un CV Informatique et un CV Commerce & administratif.
 
-## Documents alternance
-
-- [Programme de formation (PDF)](https://dylanholin.github.io/dh-portfolio/assets/docs/Programme-developpeur-et-IA-RNC5-et-RNCP6.pdf) : blocs de compétences RNCP.
-- [Planning alternance (PDF)](https://dylanholin.github.io/dh-portfolio/assets/docs/planning_alternance.pdf) : rythme formation / entreprise sur 12 mois.
-- [Coût pour l'entreprise (PDF)](https://dylanholin.github.io/dh-portfolio/assets/docs/co%C3%BBt_alternance_entreprise_DevIA.pdf) : estimation aides + rémunération.
+Le numéro de téléphone n’est pas publié en ligne pour des raisons de sécurité. Il est communiqué par email après un premier échange.

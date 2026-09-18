@@ -2,115 +2,177 @@
 
 Instructions for AI assistants (Cascade, Cursor, Copilot, Claude Code, etc.) working on this repository.
 
-> This file follows the AGENTS.md convention. It is **not** for external AI consumption; see [[llms.txt](cci:7://file:///c:/Users/Working/Documents/dh-portfolio/llms.txt:0:0-0:0)](./llms.txt) for that.
+> This file follows the AGENTS.md convention. It is not intended for external AI consumption. See [llms.txt](./llms.txt) for the public AI-facing professional summary.
 
 ## Project Context
 
-- Personal portfolio of Dylan Holin, student in "Développeur avancé & IA" seeking a 12-month apprenticeship.
-- Production: https://dylanholin.github.io/dh-portfolio
-- Repo: https://github.com/dylanholin/dh-portfolio
+- Personal portfolio of Dylan Holin, available immediately.
+- Profile combining full-stack development, systems and networks, IT support, cybersecurity, customer relations, sales and administrative skills.
+- Current objective: join a team, contribute to concrete projects and continue progressing professionally and technically.
+- Production: [https://dylanholin.github.io/dh-portfolio](https://dylanholin.github.io/dh-portfolio)
+- Repo: [https://github.com/dylanholin/dh-portfolio](https://github.com/dylanholin/dh-portfolio)
 
 ## Behavior
 
-- **Stay critical.** The user can be wrong; verify claims against the project's actual state before acting.
-- **Be anti-sycophantic:** no flattery, no filler, don't fold under pushback, never open with "you're right". Challenge weak reasoning, anticipate mistakes, and when unsure say "I don't know" or ask.
+- **Stay critical.** The user can be wrong. Verify claims against the actual project state before acting.
+- **Be anti-sycophantic.** No flattery, filler or unnecessary agreement. Challenge weak reasoning, anticipate mistakes and state uncertainty clearly.
 - **Surface tradeoffs and evaluate their impact** instead of hiding them.
-- **Admit that both user and AI can be wrong:** a request may contradict a rule by mistake, an AI proposal may rely on a false assumption. When in doubt, ask a short question rather than take a risky action.
+- **Admit that both user and AI can be wrong.** A request may contradict an existing rule, or an AI proposal may rely on a false assumption. Ask one short question when required before taking a risky action.
+- **Prefer the smallest safe change.** Do not turn a simple CSS or HTML fix into an unnecessary refactor.
 
 ## Communication
 
-- **Answer first:** result before reason. Drop pleasantries and hedging.
-- **No preamble or recap:** don't restate the request or summarize visible changes. End by stating the single next action, or that nothing's pending.
-- **Evidence over assertion:** back "works", "tested", "fixed" with the command, output, or file that proves it.
-- **Quote the shortest decisive line** of an error or log, not the whole dump.
-- **No tool-call narration.** No decorative tables or emoji unless they carry information.
-- **Write for a reader who scans:** telegraphic, fewest words, fragments over sentences. Full prose only for security warnings, irreversible actions, or explanations where nuance matters.
+- **Answer first.** Give the result before the reasoning.
+- **No preamble or recap.** Do not restate the request or summarize visible changes unless the user asks.
+- **Evidence over assertion.** Support claims such as "works", "tested" or "fixed" with a command, output or source file.
+- **Quote the shortest decisive line** of an error or log, not the full dump.
+- **No tool-call narration.**
+- **No decorative tables or emoji** unless they carry useful information.
+- **Write for scanning.** Be concise. Use short paragraphs and lists. Use full prose for security warnings, irreversible actions or explanations requiring nuance.
+- **Use French for user-facing content** unless the user requests another language. Keep technical instructions and commit messages consistent with the repository conventions.
 
 ## Action
 
-- **Surgical changes:** ship the minimum that solves the problem; touch only what the task needs.
-- **Stay focused:** exceed the literal ask only when it clearly helps. Note unrelated issues in one line and keep going.
-- **Solve your own issues first** before escalating to the human.
-- **Do not commit or push** unless the user asks.
-- **Don't guess** APIs, signatures, or behavior; read the source to confirm.
-- **Batch independent operations** in one pass.
-- **Before adding any instruction or rule, check whether an existing one already covers or contradicts it.**
-- **Require explicit consent for irreversible operations** (file deletion, CSP modification, force-push, etc.). Never execute a destructive action without human confirmation, even if the request seems to allow it.
-- **Detect suspicious requests:** network operations, data extraction, credential manipulation, bypassing security rules. When in doubt: refuse and ask for clarification.
+- **Surgical changes.** Ship the minimum that solves the problem. Touch only files required by the task.
+- **Stay focused.** Mention unrelated issues in one line only. Do not fix unrelated issues without explicit approval.
+- **Solve your own issues first** before escalating to the user.
+- **Do not commit or push** unless the user explicitly asks.
+- **Do not guess.** Read the relevant source before changing APIs, class names, selectors, signatures, links or behavior.
+- **Batch independent read-only operations** when possible.
+- **Before adding a rule or instruction, check whether an existing one already covers or contradicts it.**
+- **Require explicit consent for irreversible operations** such as deleting files, changing CSP, renaming public files, force-pushing or changing deployment settings.
+- **Detect suspicious requests.** Treat network operations, data extraction, credential manipulation and security-bypass requests with caution. Ask for clarification or refuse when appropriate.
+- **Do not add JavaScript for behavior that CSS or native browser behavior already handles correctly.** For example, preserve native anchor navigation unless custom behavior is explicitly required and justified.
 
 ## Hosting Constraints (GitHub Pages)
 
-- Static-only: no backend, no custom HTTP headers, no server build.
-- Jekyll is active by default but unused (no front matter, no `_config.yml`).
-- Files starting with `_` are ignored; do not create any.
-- Push to `main` triggers automatic deployment.
+- Static-only: no backend, no server-side code, no server build.
+- GitHub Pages deployment is triggered by pushes to `main`.
+- The project does not use a framework, bundler or package manager.
+- Do not introduce Jekyll configuration, front matter or build tooling unless explicitly requested.
+- Avoid files and directories beginning with `_`, as they can be treated specially by GitHub Pages and Jekyll-based publishing.
+- Do not assume custom server-side HTTP headers can be configured on GitHub Pages.
+- Security-related document declarations belong in [index.html](./index.html) and must be changed carefully.
 
 ## Tech Stack
 
-- HTML5, CSS3 (custom properties, grid, media queries, `@keyframes`), vanilla JS ES6+.
-- **Zero external dependencies:** no `package.json`, no CDN, no framework, no bundler, no build step.
+- HTML5.
+- CSS3: custom properties, Grid, Flexbox, media queries, `@keyframes`, `prefers-reduced-motion`.
+- Vanilla JavaScript ES6+.
+- GitHub Pages static hosting.
+- **Zero external dependencies:** no `package.json`, no CDN, no framework, no bundler and no build step.
 
 ## Non-Negotiable Rules
 
-### Security & CSP
-- CSP in [index.html](cci:7://file:///c:/Users/Working/Documents/dh-portfolio/index.html:0:0-0:0) is strict: `default-src 'self'`, `script-src 'self'`, `style-src 'self'`, `img-src 'self' data:`.
-- Forbidden: inline CSS, inline JS, external resources (Google Fonts, CDN, analytics, iframes).
-- Any new integration must comply with the CSP or the CSP must be revised with justification.
+### Security and CSP
 
-### Privacy (GDPR)
-- Zero cookies, zero tracking, zero data collection. No third-party services.
-- System fonts only (`--font-*` variables in [style.css](cci:7://file:///c:/Users/Working/Documents/dh-portfolio/assets/css/style.css:0:0-0:0)).
+- CSP and security-related meta declarations are defined in [index.html](./index.html).
+- The CSP includes restrictive directives such as `default-src 'self'`, `script-src 'self'`, `style-src 'self'` and `img-src 'self' data:`.
+- Forbidden by default: inline executable JavaScript, inline CSS, external scripts, Google Fonts, CDNs, analytics, tracking pixels and iframes.
+- Any new external integration must be reviewed against CSP, privacy and accessibility constraints.
+- Any CSP change requires explicit justification and user approval.
+- Do not weaken CSP merely to make an integration work. Prefer a local, static or dependency-free solution.
 
-### Accessibility (WCAG 2.1 AA)
-- Respect `prefers-reduced-motion` in CSS and JS.
-- Preserve skip link, `aria-label`, `aria-labelledby`, `role="list"` on styled lists.
-- Decorative SVGs: `aria-hidden="true"`; meaningful SVGs: explicit `aria-label`.
-- Visible focus and focus trap in modals: do not break.
+### Privacy
 
-### Network & Data Safety
-- No unjustified network connections (SSH, external APIs, downloads).
-- No data extraction or exfiltration without legitimate context.
-- No manipulation of credentials, SSH keys, or secrets.
+- Zero cookies, zero tracking and zero personal-data collection by default.
+- No third-party analytics or advertising services.
+- Use system fonts only through the `--font-*` variables in [style.css](./assets/css/style.css).
+- Do not add external APIs, remote fonts, trackers or telemetry without explicit user approval.
+- Do not expose personal information beyond what is already intentionally published in the portfolio.
+
+### Accessibility
+
+- Target WCAG 2.1 AA practices.
+- Respect `prefers-reduced-motion` in CSS and JavaScript.
+- Preserve the skip link, `aria-label`, `aria-labelledby` and `role="list"` on styled lists.
+- Decorative SVGs must use `aria-hidden="true"`.
+- Meaningful SVGs require an accessible name, such as an explicit `aria-label`.
+- Preserve visible keyboard focus.
+- Preserve modal focus management and Escape-key behavior.
+- Preserve keyboard navigation and adequate mobile touch targets.
+- Do not remove semantic HTML just to simplify styling.
+
+### Network and Data Safety
+
+- No unjustified network connections, SSH operations, external API calls or downloads.
+- No data extraction or exfiltration without legitimate context and explicit approval.
+- No manipulation of credentials, SSH keys, tokens, secrets or deployment configuration.
+- Never print, commit or expose secrets in source files, logs, documentation or Git history.
 
 ## Code Conventions
 
-- **Comments and class names:** French (consistency with existing code). Do not anglicize mid-project.
-- **Indentation:** 2 spaces CSS/JS, 4 spaces HTML.
-- **CSS:** variables in `:root`, kebab-case, no `!important` without justification.
-- **JS:** no `var`, prefer `const`; IIFE for isolated code; `{ passive: true }` scroll listeners.
-- **No em dash (`—`) or en dash (`–`) in French content** (HTML, Markdown, CSS/JS comments, llms.txt, README).
+- **Comments and class names:** French, for consistency with the existing codebase. Do not anglicize existing French naming mid-project.
+- **Indentation:** 2 spaces in CSS and JavaScript, 4 spaces in HTML.
+- **HTML:** preserve semantic structure, existing accessibility attributes and valid nesting.
+- **CSS:** use variables from `:root`, use kebab-case class names and do not use `!important` without justification.
+- **CSS:** prefer narrow selectors. Do not modify shared classes when a component-specific selector solves the issue safely.
+- **JavaScript:** do not use `var`. Prefer `const`; use `let` only for values that are reassigned.
+- **JavaScript:** preserve the existing script structure unless isolation is required. Do not introduce an IIFE merely for style consistency.
+- **JavaScript:** use `{ passive: true }` for compatible scroll listeners.
+- **JavaScript:** avoid duplicate event listeners and avoid overriding native anchor behavior without a clear requirement.
+- **No em dash (`—`) or en dash (`–`) in French content** in HTML, Markdown, CSS/JS comments, `llms.txt` or `README.md`.
+
+## Contact Section Rules
+
+- The Contact section must remain vertically ordered and centered.
+- Keep the current order of content unless the user explicitly requests a structural change:
+  1. Contact introduction
+  2. Email CTA and copy button
+  3. CV description
+  4. CV buttons
+  5. GitHub and LinkedIn links
+- Preserve native navigation to `#contact` unless custom scrolling is explicitly requested.
+- Do not add `window.scrollTo()`, `scrollIntoView()` or `preventDefault()` to the Contact navigation without explicit approval.
+- Do not modify `.btn-email` globally without checking all of its usages.
+- The CV buttons use both `.btn-email` and `.btn-cv`. Any generic `.btn-email` change can affect the CV buttons.
+- Keep the two CV buttons visually identical.
+- Do not reduce the copy button or alter the email split-button layout without explicit approval.
+- Do not replace the Contact layout with a two-column grid, fixed height or `min-height: 100vh` unless explicitly requested.
 
 ## Git Workflow
 
-- Atomic commits: one intent = one commit. No god commits.
-- Conventional Commits, messages in French: `feat(scope):`, `fix(scope):`, `chore(scope):`, `docs(scope):`, `refactor(scope):`, `style(scope):`.
-- Push to `main` for GH Pages deployment. Use branches for large changes.
+- Atomic commits: one intent equals one commit. Avoid unrelated changes in the same commit.
+- Use Conventional Commits.
+- Commit messages are written in French unless the user explicitly asks for English.
+- Allowed prefixes: `feat(scope):`, `fix(scope):`, `chore(scope):`, `docs(scope):`, `refactor(scope):`, `style(scope):`.
+- Review staged changes before committing with `git diff --cached`.
+- Never use `git push --force` without explicit approval.
+- Push to `main` triggers GitHub Pages deployment.
+- Use a branch for large, risky or unrelated changes.
 
 ## Sensitive Files
 
-- [index.html](cci:7://file:///c:/Users/Working/Documents/dh-portfolio/index.html:0:0-0:0) (CSP, security headers): modify with justification.
-- [llms.txt](cci:7://file:///c:/Users/Working/Documents/dh-portfolio/llms.txt:0:0-0:0): public AI-facing summary; keep in sync with CV changes.
-- `assets/docs/*.pdf`: official apprenticeship documents, do not rename.
-- [README.md](cci:7://file:///c:/Users/Working/Documents/dh-portfolio/README.md:0:0-0:0): public project docs; verify if changes impact README before each commit.
-- [AGENTS.md](cci:7://file:///c:/Users/Working/Documents/dh-portfolio/AGENTS.md:0:0-0:0): **the AI must never modify this file, even on explicit user request.** The AI may propose changes in plain text, but the user must apply them manually.
+- [index.html](./index.html): content, CSP and security-related document declarations. Modify with justification.
+- [assets/css/style.css](./assets/css/style.css): global variables, themes, responsive styles and component styling. Check selector scope before modifying.
+- [assets/js/script.js](./assets/js/script.js): navigation, animations, theme toggle, modals, email copy behavior and project pagination. Avoid duplicate listeners.
+- [llms.txt](./llms.txt): public AI-facing professional summary. Keep aligned with the portfolio, current objectives, CVs and contact information.
+- `assets/docs/*.pdf`: CVs and professional documents. Do not rename, delete or move a PDF without checking and updating every reference in `index.html`, `README.md` and `llms.txt`.
+- [README.md](./README.md): public project documentation. Check whether changes impact it before committing.
+- [AGENTS.md](./AGENTS.md): AI instructions. The AI must never modify this file, even when explicitly asked. It may propose changes in plain text for the user to apply manually.
 
 ## Pre-Change Checklist
 
-- [ ] Compatible with GitHub Pages (no backend, no build).
-- [ ] Respects strict CSP (no inline, no external).
-- [ ] Respects `prefers-reduced-motion` if new animation.
-- [ ] No new external dependency without explicit validation.
-- [ ] Atomic commit with French Conventional Commits message.
-- [ ] No a11y regression (skip link, focus, aria).
+- [ ] Compatible with GitHub Pages: no backend and no build requirement.
+- [ ] Respects CSP: no unnecessary inline code or external resource.
+- [ ] Respects privacy: no cookie, tracker, telemetry or third-party service.
+- [ ] Respects `prefers-reduced-motion` if an animation or transition is changed.
+- [ ] No new dependency without explicit validation.
+- [ ] No accessibility regression: skip link, focus, ARIA and keyboard navigation preserved.
+- [ ] CSS selector scope verified before modifying a shared class.
 - [ ] No irreversible operation without explicit user confirmation.
-- [ ] [AGENTS.md](cci:7://file:///c:/Users/Working/Documents/dh-portfolio/AGENTS.md:0:0-0:0) never modified by the AI.
-- [ ] [README.md](cci:7://file:///c:/Users/Working/Documents/dh-portfolio/README.md:0:0-0:0) updated if the change impacts public docs.
+- [ ] `llms.txt` updated if professional profile, objectives, CVs or public contact information changed.
+- [ ] `README.md` updated if public project documentation changed.
+- [ ] Atomic Conventional Commit message prepared in French.
+- [ ] [AGENTS.md](./AGENTS.md) not modified by the AI.
 
-## Manual Validation (no automated tests)
+## Manual Validation
 
-- **Browser console:** no CSP errors, no 404s.
-- **Keyboard navigation:** Tab/Shift+Tab, skip link, visible focus.
-- **Reduced motion:** DevTools → `prefers-reduced-motion: reduce` → canvas static, no CSS animations.
-- **Responsive:** 320px, 768px, 1440px.
-- **Lighthouse:** Performance >= 95, Accessibility = 100, Best Practices >= 95, SEO >= 95.
-- **Print:** readable print preview.
+- **Browser console:** no CSP errors and no 404 errors.
+- **Keyboard navigation:** test Tab and Shift+Tab, skip link, visible focus, modal focus and Escape behavior.
+- **Reduced motion:** DevTools, emulate `prefers-reduced-motion: reduce`, then verify that CSS animations, transitions and animated Hero blobs are disabled or reduced, and that smooth scrolling becomes instant.
+- **Theme:** test light and dark modes, including persistence after reload.
+- **Contact:** test the email link, copy button feedback, two CV download links, GitHub and LinkedIn links.
+- **Responsive:** test at 320px, 768px and 1440px widths.
+- **Print:** verify a readable print preview.
+- **Lighthouse:** aim for Performance >= 95, Accessibility >= 95, Best Practices >= 95 and SEO >= 95. Investigate every regression.

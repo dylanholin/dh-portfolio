@@ -1404,37 +1404,11 @@ img { max-width: 100%; display: block; }
   top: 0.15em;
 }
 
-/* Badge statut */
-.formation-statut {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  background: var(--hero-badge-bg);
-  color: var(--accent);
-  border: 1px solid var(--hero-badge-border);
-  padding: 0.25rem 0.85rem;
-  border-radius: var(--radius-full);
-  font-size: 0.78rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-family: var(--font-mono);
-}
-.formation-statut::before {
-  content: '';
-  width: 6px;
-  height: 6px;
-  background: var(--accent);
-  border-radius: 50%;
-  flex-shrink: 0;
-  animation: pulse-dot 2s ease-in-out infinite;
-}
-
 .formation-secondaire { opacity: 0.6; }
 .formation-secondaire:hover { opacity: 1; }
 
 .contact-sociaux {
-  margin: 2rem auto 0;
+  margin: var(--space-xl) auto 0;
   max-width: 520px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -1443,11 +1417,6 @@ img { max-width: 100%; display: block; }
 
 /* Style pour les listes de compétences dans expériences */
 .competence-liste-margin {
-  margin-top: 0.75rem;
-}
-.competence-liste-margin + .formation-statut {
-  display: flex;
-  width: fit-content;
   margin-top: 0.75rem;
 }
 
@@ -1549,7 +1518,7 @@ img { max-width: 100%; display: block; }
   border-top: 1px solid var(--border);
   position: relative;
   overflow: hidden;
-  scroll-margin-top: var(--nav-height);
+  scroll-margin-top: calc(var(--nav-height) + 1rem);
 }
 .section-contact::before {
   content: '';
@@ -1563,7 +1532,7 @@ img { max-width: 100%; display: block; }
 .contact-container {
   max-width: 900px;
   margin: 0 auto;
-  padding: var(--space-3xl) var(--space-xl);
+  padding: 0 var(--space-xl);
   text-align: center;
   position: relative;
   z-index: 1;
@@ -1584,14 +1553,34 @@ img { max-width: 100%; display: block; }
 }
 .contact-intro .contact-note {
   margin-top: var(--space-lg);
-  font-size: 0.9375rem;
+  font-size: clamp(0.7rem, 1.1vw, 0.9375rem);
   color: var(--text-muted);
   line-height: 1.8;
   font-style: italic;
+  text-align: center; /* Centre horizontalement le texte */
 }
 .contact-email {
   margin: var(--space-xl) auto 0;
   max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+/* Description des CV */
+.cv-description {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: clamp(0.75rem, 1.2vw, 0.9375rem); /* Texte sur une ligne de 320px à 1920px */
+  line-height: 1.6;
+  margin: 0;
+  padding: 0 var(--space-sm);
+  white-space: nowrap; /* Force le texte sur une seule ligne */
+}
+
+/* Groupe de boutons CV */
+.cv-buttons-group {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1rem;
@@ -1653,6 +1642,9 @@ img { max-width: 100%; display: block; }
 .btn-email-group {
   display: flex;
   align-items: stretch;
+  justify-content: center; /* Centre le groupe horizontalement */
+  width: fit-content; /* Dimensionne le groupe à son contenu */
+  margin-inline: auto; /* Centre le groupe dans son conteneur */
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
 }
@@ -1661,7 +1653,8 @@ img { max-width: 100%; display: block; }
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-right: none;
-  padding-right: 1rem;
+  padding: 0.9rem 1.45rem; /* Légèrement plus grand que les boutons CV desktop (+0.15rem vertical, +0.2rem horizontal) */
+  font-size: 0.95rem; /* Légèrement plus grand que les boutons CV (+0.05rem) */
   box-shadow: none;
 }
 .btn-email-group .btn-email:hover {
@@ -1879,7 +1872,9 @@ body.menu-open { overflow: hidden; }
   .contact-intro p { font-size: 1rem; line-height: 1.6; }
   .contact-intro .contact-note { font-size: 0.875rem; }
   .contact-email { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+  .cv-buttons-group { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
   .btn-email { padding: 0.75rem 1.25rem; font-size: 0.9rem; }
+  .btn-email-group .btn-email { padding: 0.9rem 1.05rem; font-size: 0.95rem; } /* Tablet : bouton email légèrement plus grand que CV */
 }
 
 @media (max-width: 768px) {
@@ -1973,6 +1968,7 @@ body.menu-open { overflow: hidden; }
   .contact-intro p { font-size: 1.05rem; line-height: 1.7; }
   .contact-intro .contact-note { font-size: 0.9375rem; }
   .section-contact .section-titre { font-size: clamp(2rem, 8vw, 2.6rem); }
+  .section-contact { scroll-margin-top: calc(var(--nav-height) + 1rem); } /* Mobile : scroll-margin-top réduit */
   .hero-actions {
     flex-direction: column;
     align-items: stretch;
@@ -2011,9 +2007,10 @@ body.menu-open { overflow: hidden; }
   .projet-deplier { align-self: flex-end; }
 
   .contact-container { padding: var(--space-2xl) var(--space-md); }
-  .contact-email { grid-template-columns: 1fr; }
+  .cv-buttons-group { grid-template-columns: 1fr; }
   .btn { min-height: 44px; }
   .btn-email { padding: 0.85rem 1.5rem; font-size: 0.9rem; min-height: 44px; }
+  .btn-email-group .btn-email { padding: 1rem 1.25rem; font-size: 0.95rem; } /* Mobile : bouton email légèrement plus grand que CV */
   .apropos-contenu { padding: var(--space-lg); }
   .nav-principale { padding: 0 var(--space-md); }
 

@@ -50,6 +50,32 @@ navLiens.querySelectorAll('a').forEach(link => {
   });
 });
 
+// Centrage de la section Contact au clic du CTA navbar, desktop uniquement
+const contactNavCta = document.querySelector('.nav-cta[href="#contact"]');
+const contactSection = document.getElementById('contact');
+
+if (contactNavCta && contactSection) {
+  contactNavCta.addEventListener('click', (event) => {
+    if (window.innerWidth <= 768) return;
+
+    event.preventDefault();
+
+    const contactCenter =
+      window.scrollY
+      + contactSection.getBoundingClientRect().top
+      + contactSection.offsetHeight / 2;
+
+    const targetTop = contactCenter - window.innerHeight / 2;
+
+    window.scrollTo({
+      top: Math.max(0, targetTop),
+      behavior: 'smooth'
+    });
+
+    history.pushState(null, '', '#contact');
+  });
+}
+
 // ── Scroll animations ──
 const animatedEls = document.querySelectorAll('[data-animate]');
 const observer = new IntersectionObserver((entries) => {

@@ -2033,6 +2033,13 @@ body.menu-open { overflow: hidden; }
     filter: blur(40px);
     opacity: 0.5;
   }
+
+   .cv-description {
+    white-space: normal;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    padding-inline: 0;
+  }
 }
 
 @media (max-width: 480px) {
